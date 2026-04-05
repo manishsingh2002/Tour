@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rameswaram — The Sacred Island | Complete Travel Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --saffron: #E8541A;
+    --deep-saffron: #C43D0A;
+    --gold: #D4A017;
+    --gold-light: #F5C842;
+    --ink: #1A1208;
+    --sand: #F5EDD8;
+    --sand-dark: #E8D9B8;
+    --sea-blue: #1B5B8A;
+    --sea-light: #E8F4FD;
+    --teal: #0E7C7B;
+    --cream: #FFFBF4;
+    --warm-gray: #8A7D6A;
+    --text-body: #3D2E1A;
+    --text-muted: #8A7D6A;
+    --border: rgba(212,160,23,0.25);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-body);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--ink);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 30%, rgba(232,84,26,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 80% at 80% 80%, rgba(27,91,138,0.25) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 20% 70%, rgba(212,160,23,0.12) 0%, transparent 50%),
+      linear-gradient(175deg, #0D0A05 0%, #1A1208 40%, #0A1520 100%);
+  }
+
+  .hero-pattern {
+    position: absolute; inset: 0; opacity: 0.06;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(212,160,23,0.4) 60px, rgba(212,160,23,0.4) 61px),
+      repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(212,160,23,0.4) 60px, rgba(212,160,23,0.4) 61px);
+  }
+
+  .hero-waves {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 180px; overflow: hidden;
+  }
+  .hero-waves svg { position: absolute; bottom: 0; width: 200%; animation: wave 8s linear infinite; }
+  .hero-waves svg:nth-child(2) { animation-delay: -4s; opacity: 0.4; }
+  @keyframes wave { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    padding: 0 6vw 8vh;
+    max-width: 900px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block;
+    width: 40px; height: 1px; background: var(--gold);
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 9vw, 110px);
+    font-weight: 300;
+    line-height: 0.92;
+    color: var(--sand);
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--saffron);
+  }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(16px, 2.5vw, 22px);
+    font-weight: 300; font-style: italic;
+    color: rgba(245,237,216,0.65);
+    margin-bottom: 32px;
+    max-width: 520px;
+    line-height: 1.5;
+  }
+
+  .hero-badges {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin-bottom: 40px;
+  }
+  .badge {
+    padding: 7px 16px;
+    border: 1px solid rgba(212,160,23,0.35);
+    border-radius: 100px;
+    font-size: 12px; font-weight: 400;
+    color: rgba(245,237,216,0.75);
+    letter-spacing: 0.04em;
+    backdrop-filter: blur(4px);
+  }
+  .badge.highlight {
+    background: rgba(232,84,26,0.2);
+    border-color: rgba(232,84,26,0.5);
+    color: #F5A882;
+  }
+
+  .hero-scroll {
+    position: absolute; bottom: 32px; right: 6vw;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: rgba(245,237,216,0.4); font-size: 10px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+  }
+  .scroll-line {
+    width: 1px; height: 50px;
+    background: linear-gradient(to bottom, transparent, rgba(212,160,23,0.6));
+    animation: scrollpulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollpulse { 0%,100%{opacity:0.4;} 50%{opacity:1;} }
+
+  /* ── NAV ── */
+  .sticky-nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(26,18,8,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(212,160,23,0.2);
+    padding: 0 6vw;
+  }
+  .nav-inner {
+    display: flex; align-items: center; gap: 0;
+    overflow-x: auto; scrollbar-width: none;
+  }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-link {
+    color: rgba(245,237,216,0.5);
+    text-decoration: none;
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 16px 18px;
+    white-space: nowrap;
+    transition: color 0.2s;
+    border-bottom: 2px solid transparent;
+  }
+  .nav-link:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+  /* ── SECTION SHELLS ── */
+  section {
+    padding: 80px 6vw;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--saffron);
+    margin-bottom: 12px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::before {
+    content: ''; display: block;
+    width: 24px; height: 1px; background: var(--saffron);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.1;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  .section-title em { font-style: italic; color: var(--saffron); }
+
+  .section-intro {
+    font-size: 16px; font-weight: 300; line-height: 1.75;
+    color: var(--text-muted);
+    max-width: 620px;
+    margin-bottom: 48px;
+  }
+
+  /* ── TRAIN INFO ── */
+  .train-section {
+    background: var(--ink);
+    color: var(--sand);
+    padding: 80px 6vw;
+  }
+  .train-section .section-title { color: var(--sand); }
+  .train-section .section-intro { color: rgba(245,237,216,0.55); }
+
+  .train-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(212,160,23,0.25);
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 24px;
+  }
+  .train-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .train-number {
+    font-size: 12px; letter-spacing: 0.15em;
+    color: rgba(245,237,216,0.4);
+    text-transform: uppercase; margin-bottom: 24px;
+  }
+  .train-meta {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px;
+  }
+  .train-meta-item label {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(245,237,216,0.4); display: block; margin-bottom: 4px;
+  }
+  .train-meta-item span {
+    font-size: 18px; font-weight: 300;
+    color: var(--sand);
+  }
+  .train-meta-item span.accent { color: var(--saffron); }
+
+  .route-visual {
+    display: flex; align-items: center; gap: 0;
+    margin: 32px 0;
+    overflow-x: auto; padding-bottom: 8px;
+  }
+  .route-stop {
+    display: flex; flex-direction: column; align-items: center;
+    min-width: 80px;
+  }
+  .route-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--warm-gray);
+    border: 2px solid rgba(212,160,23,0.2);
+    margin-bottom: 8px;
+  }
+  .route-dot.start, .route-dot.end {
+    width: 14px; height: 14px;
+    background: var(--saffron);
+    border-color: var(--gold);
+    box-shadow: 0 0 12px rgba(232,84,26,0.5);
+  }
+  .route-stop-name {
+    font-size: 10px; color: rgba(245,237,216,0.5);
+    text-align: center; white-space: nowrap;
+  }
+  .route-stop-name.highlight { color: var(--gold); font-weight: 500; }
+  .route-line {
+    flex: 1; min-width: 24px; height: 2px;
+    background: linear-gradient(to right, rgba(212,160,23,0.3), rgba(212,160,23,0.6), rgba(212,160,23,0.3));
+    margin-bottom: 28px;
+    position: relative;
+  }
+  .route-line::after {
+    content: '›';
+    position: absolute; top: -10px; right: -4px;
+    color: var(--gold); font-size: 14px;
+  }
+
+  .fare-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;
+    margin-top: 24px;
+  }
+  .fare-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .fare-card.recommended {
+    border-color: rgba(232,84,26,0.4);
+    background: rgba(232,84,26,0.08);
+  }
+  .fare-class { font-size: 12px; color: rgba(245,237,216,0.5); margin-bottom: 4px; }
+  .fare-code {
+    font-size: 18px; font-weight: 300; color: var(--sand);
+    margin-bottom: 8px;
+  }
+  .fare-price { font-size: 13px; color: var(--gold); }
+  .fare-rec {
+    font-size: 10px; color: var(--saffron);
+    text-transform: uppercase; letter-spacing: 0.1em;
+    margin-top: 4px;
+  }
+
+  .train-tip {
+    background: rgba(232,84,26,0.08);
+    border-left: 3px solid var(--saffron);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin-top: 20px;
+    font-size: 13px;
+    color: rgba(245,237,216,0.7);
+    line-height: 1.6;
+  }
+
+  /* ── ITINERARY ── */
+  .day-grid { display: flex; flex-direction: column; gap: 0; }
+
+  .day-block {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 0;
+    position: relative;
+  }
+  .day-block::before {
+    content: '';
+    position: absolute;
+    left: 80px; top: 60px; bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+  .day-block:last-child::before { display: none; }
+
+  .day-number-col {
+    padding-top: 4px;
+    display: flex; flex-direction: column; align-items: center;
+    padding-right: 24px;
+  }
+  .day-orb {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: var(--ink);
+    border: 1.5px solid var(--border);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    z-index: 2;
+    position: relative;
+  }
+  .day-orb .day-n {
+    font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--warm-gray); line-height: 1;
+  }
+  .day-orb .day-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 600;
+    color: var(--saffron); line-height: 1;
+  }
+
+  .day-content { padding: 0 0 56px 0; }
+
+  .day-header {
+    margin-bottom: 24px;
+  }
+  .day-location {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--warm-gray); margin-bottom: 4px;
+  }
+  .day-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 300;
+    color: var(--ink); line-height: 1.15;
+  }
+  .day-headline em { font-style: italic; color: var(--saffron); }
+  .day-desc {
+    font-size: 13px; color: var(--text-muted);
+    line-height: 1.6; margin-top: 6px;
+    max-width: 580px;
+  }
+
+  .stops-list { display: flex; flex-direction: column; gap: 12px; }
+
+  .stop-card {
+    background: white;
+    border: 1px solid rgba(139,121,97,0.12);
+    border-radius: 12px;
+    padding: 18px 22px;
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    gap: 16px;
+    align-items: start;
+    transition: box-shadow 0.2s, transform 0.2s;
+    cursor: default;
+  }
+  .stop-card:hover {
+    box-shadow: 0 4px 20px rgba(139,90,30,0.1);
+    transform: translateY(-1px);
+  }
+
+  .stop-icon {
+    width: 48px; height: 48px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .icon-temple { background: #FFF3E8; }
+  .icon-beach { background: #E8F4FD; }
+  .icon-food { background: #F0FAF0; }
+  .icon-heritage { background: #FDF5E8; }
+  .icon-view { background: #F5E8FD; }
+  .icon-travel { background: #F5F5F5; }
+  .icon-nature { background: #E8FDF5; }
+
+  .stop-body {}
+  .stop-time {
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--warm-gray); margin-bottom: 2px;
+  }
+  .stop-name {
+    font-size: 15px; font-weight: 500;
+    color: var(--ink); margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .stop-desc {
+    font-size: 12.5px; color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .stop-tip {
+    font-size: 11.5px; color: var(--teal);
+    margin-top: 6px; line-height: 1.5;
+    padding-top: 6px;
+    border-top: 1px solid rgba(139,121,97,0.1);
+  }
+  .stop-tip::before { content: '💡 '; }
+
+  .stop-meta {
+    display: flex; flex-direction: column; align-items: flex-end; gap: 4px;
+    flex-shrink: 0;
+  }
+  .rating {
+    font-size: 11px; font-weight: 500;
+    color: var(--gold-light);
+    background: #1A1208;
+    padding: 3px 8px; border-radius: 100px;
+    white-space: nowrap;
+  }
+  .duration-badge {
+    font-size: 10px; color: var(--warm-gray);
+    border: 1px solid var(--border);
+    padding: 2px 8px; border-radius: 100px;
+    white-space: nowrap;
+  }
+  .cost-badge {
+    font-size: 10px; color: var(--teal);
+    white-space: nowrap;
+  }
+
+  /* ── PLACES GRID ── */
+  .places-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  .place-card {
+    background: white;
+    border: 1px solid rgba(139,121,97,0.12);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: box-shadow 0.25s, transform 0.25s;
+  }
+  .place-card:hover {
+    box-shadow: 0 8px 32px rgba(139,90,30,0.12);
+    transform: translateY(-2px);
+  }
+  .place-card-color {
+    height: 6px;
+  }
+  .place-card-body { padding: 22px 22px 18px; }
+  .place-emoji { font-size: 28px; margin-bottom: 10px; display: block; }
+  .place-card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 600;
+    color: var(--ink); margin-bottom: 4px; line-height: 1.2;
+  }
+  .place-card-type {
+    font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--warm-gray); margin-bottom: 10px;
+  }
+  .place-card-desc {
+    font-size: 13px; color: var(--text-muted);
+    line-height: 1.65; margin-bottom: 14px;
+  }
+  .place-card-footer {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 12px;
+    border-top: 1px solid rgba(139,121,97,0.1);
+  }
+  .place-rating { font-size: 12px; color: var(--gold); font-weight: 500; }
+  .place-dist { font-size: 11px; color: var(--warm-gray); }
+  .place-hours { font-size: 11px; color: var(--teal); }
+
+  /* ── BUDGET TABLE ── */
+  .budget-section { background: var(--sand); padding: 80px 6vw; }
+  .budget-table {
+    width: 100%; border-collapse: collapse; margin-top: 32px;
+  }
+  .budget-table th {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--warm-gray); padding: 12px 16px;
+    text-align: left; border-bottom: 2px solid var(--border);
+  }
+  .budget-table td {
+    padding: 14px 16px; font-size: 14px; color: var(--text-body);
+    border-bottom: 1px solid rgba(139,121,97,0.12);
+    vertical-align: top;
+  }
+  .budget-table tr:last-of-type td {
+    border-bottom: none; font-weight: 500; color: var(--ink);
+    background: rgba(212,160,23,0.08);
+  }
+  .budget-table tr:hover td { background: rgba(139,121,97,0.04); }
+  .budget-table td.amount { font-family: 'Cormorant Garamond', serif; font-size: 17px; }
+  .budget-table td.amount.total { color: var(--saffron); font-size: 20px; font-weight: 600; }
+
+  .budget-summary {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;
+    margin-bottom: 40px;
+  }
+  .budget-sum-card {
+    background: white; border: 1px solid rgba(139,121,97,0.15);
+    border-radius: 12px; padding: 20px 22px;
+  }
+  .budget-sum-card label {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--warm-gray); display: block; margin-bottom: 6px;
+  }
+  .budget-sum-card .amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; color: var(--ink); font-weight: 600;
+  }
+  .budget-sum-card .amount.green { color: var(--teal); }
+  .budget-sum-card .sub { font-size: 11px; color: var(--warm-gray); margin-top: 2px; }
+
+  /* ── HOTELS ── */
+  .hotels-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .hotel-card {
+    background: white; border: 1px solid rgba(139,121,97,0.12);
+    border-radius: 14px; overflow: hidden;
+  }
+  .hotel-city-bar {
+    padding: 10px 18px; font-size: 10px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  .hotel-body { padding: 16px 18px 18px; }
+  .hotel-name {
+    font-size: 15px; font-weight: 500; color: var(--ink);
+    margin-bottom: 3px;
+  }
+  .hotel-location { font-size: 11px; color: var(--warm-gray); margin-bottom: 10px; }
+  .hotel-meta {
+    display: flex; gap: 8px; flex-wrap: wrap;
+  }
+  .hotel-tag {
+    font-size: 11px; padding: 3px 10px;
+    border-radius: 100px; border: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+  .hotel-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; color: var(--saffron); font-weight: 600;
+    margin-top: 12px;
+  }
+  .hotel-price span { font-size: 12px; font-family: 'DM Sans', sans-serif; color: var(--warm-gray); font-weight: 300; }
+  .hotel-note { font-size: 11.5px; color: var(--teal); margin-top: 6px; line-height: 1.4; }
+
+  /* ── TIPS ── */
+  .tips-section { background: var(--ink); padding: 80px 6vw; }
+  .tips-section .section-title { color: var(--sand); }
+
+  .tips-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px; margin-top: 40px;
+  }
+  .tip-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(212,160,23,0.15);
+    border-radius: 12px; padding: 22px;
+  }
+  .tip-category {
+    font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .tip-category::before { content: ''; display: block; width: 16px; height: 1px; background: var(--gold); }
+  .tip-list { list-style: none; }
+  .tip-list li {
+    font-size: 13px; color: rgba(245,237,216,0.65);
+    line-height: 1.6; padding: 7px 0;
+    border-bottom: 1px solid rgba(212,160,23,0.08);
+    padding-left: 14px; position: relative;
+  }
+  .tip-list li::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: var(--saffron); font-size: 11px;
+  }
+  .tip-list li:last-child { border-bottom: none; }
+
+  /* ── PACKING ── */
+  .packing-cols {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px; margin-top: 32px;
+  }
+  .pack-group {
+    background: white; border: 1px solid rgba(139,121,97,0.12);
+    border-radius: 12px; padding: 18px;
+  }
+  .pack-group-title {
+    font-size: 11px; font-weight: 500; text-transform: uppercase;
+    letter-spacing: 0.15em; color: var(--saffron);
+    margin-bottom: 12px; padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .pack-item {
+    font-size: 13px; color: var(--text-muted);
+    padding: 4px 0; display: flex; align-items: center; gap: 8px;
+  }
+  .pack-item::before {
+    content: ''; width: 5px; height: 5px; border-radius: 50%;
+    background: var(--sand-dark); flex-shrink: 0;
+  }
+  .pack-item.must::before { background: var(--saffron); }
+
+  /* ── FOOD GUIDE ── */
+  .food-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .food-card {
+    background: white; border: 1px solid rgba(139,121,97,0.12);
+    border-radius: 12px; padding: 20px;
+  }
+  .food-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 600; color: var(--ink);
+    margin-bottom: 3px;
+  }
+  .food-city { font-size: 11px; color: var(--warm-gray); margin-bottom: 8px; }
+  .food-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 10px; }
+  .food-price { font-size: 13px; color: var(--teal); font-weight: 500; }
+  .food-where { font-size: 11.5px; color: var(--warm-gray); margin-top: 4px; }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--ink);
+    padding: 60px 6vw 40px;
+    text-align: center;
+    border-top: 1px solid rgba(212,160,23,0.15);
+  }
+  .footer-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px; font-weight: 300; font-style: italic;
+    color: var(--gold); margin-bottom: 12px;
+  }
+  .footer-sub {
+    font-size: 13px; color: rgba(245,237,216,0.4);
+    max-width: 480px; margin: 0 auto; line-height: 1.7;
+  }
+  .footer-divider {
+    width: 40px; height: 1px; background: rgba(212,160,23,0.3);
+    margin: 24px auto;
+  }
+  .footer-note {
+    font-size: 11px; color: rgba(245,237,216,0.2);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    section { padding: 56px 5vw; }
+    .day-block { grid-template-columns: 64px 1fr; }
+    .stop-card { grid-template-columns: 40px 1fr; }
+    .stop-meta { display: none; }
+    .train-section, .budget-section, .tips-section { padding: 56px 5vw; }
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-in {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: none; }
+
+  /* Decorative divider */
+  .ornament {
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; margin: 8px 0 40px;
+  }
+  .ornament::before, .ornament::after {
+    content: ''; flex: 1; max-width: 120px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--border));
+  }
+  .ornament::after { background: linear-gradient(to left, transparent, var(--border)); }
+  .ornament span { color: var(--gold); font-size: 14px; letter-spacing: 0.2em; }
+
+  .full-bleed { max-width: none; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HERO ═══════════ -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-waves">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" fill="none">
+      <path d="M0 40 Q180 0 360 40 Q540 80 720 40 Q900 0 1080 40 Q1260 80 1440 40 L1440 80 L0 80 Z" fill="rgba(26,18,8,0.6)"/>
+    </svg>
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" fill="none">
+      <path d="M0 50 Q180 10 360 50 Q540 90 720 50 Q900 10 1080 50 Q1260 90 1440 50 L1440 80 L0 80 Z" fill="rgba(26,18,8,0.4)"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Complete Travel Guide &nbsp;·&nbsp; Surat to Rameswaram</div>
+    <h1 class="hero-title">
+      The Sacred<br><em>Island</em><br>of Rameswaram
+    </h1>
+    <p class="hero-subtitle">A 10-day pilgrimage through Tamil Nadu — temples, two seas, ancient cities, and the edge of India</p>
+    <div class="hero-badges">
+      <span class="badge highlight">🚆 Train 16734 — Tuesdays</span>
+      <span class="badge">10 Days · 10 Nights</span>
+      <span class="badge">₹10,000–15,000</span>
+      <span class="badge">Surat → Kanyakumari → Madurai → Trichy</span>
+      <span class="badge">18+ Attractions</span>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    scroll
+  </div>
+</div>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav class="sticky-nav">
+  <div class="nav-inner">
+    <a href="#trains" class="nav-link">Trains</a>
+    <a href="#itinerary" class="nav-link">Itinerary</a>
+    <a href="#rameswaram" class="nav-link">Rameswaram</a>
+    <a href="#return" class="nav-link">Return Route</a>
+    <a href="#budget" class="nav-link">Budget</a>
+    <a href="#hotels" class="nav-link">Hotels</a>
+    <a href="#food" class="nav-link">Food</a>
+    <a href="#tips" class="nav-link">Tips</a>
+    <a href="#packing" class="nav-link">Packing</a>
+  </div>
+</nav>
+
+<!-- ═══════════ TRAIN INFO ═══════════ -->
+<div class="train-section full-bleed" id="trains">
+  <div style="max-width:1300px; margin:0 auto;">
+    <div class="section-label">Getting There</div>
+    <h2 class="section-title" style="color:var(--sand);">The <em>Iron Road</em> South</h2>
+    <p class="section-intro">There is exactly one direct weekly train from Surat to Rameswaram. It runs on Tuesdays. Book 60 days ahead on IRCTC — this is not a guideline, it is a necessity.</p>
+
+    <div class="train-card">
+      <div class="train-name">Okha – Rameswaram Express</div>
+      <div class="train-number">Train No. 16734 &nbsp;|&nbsp; Departs every Tuesday</div>
+      <div class="route-visual">
+        <div class="route-stop">
+          <div class="route-dot start"></div>
+          <div class="route-stop-name highlight">Surat (UDN)<br><small style="opacity:0.6">21:20</small></div>
+        </div>
+        <div class="route-line"></div>
+        <div class="route-stop">
+          <div class="route-dot"></div>
+          <div class="route-stop-name">Panvel<br><small style="opacity:0.6">~4h</small></div>
+        </div>
+        <div class="route-line"></div>
+        <div class="route-stop">
+          <div class="route-dot"></div>
+          <div class="route-stop-name">Madgaon<br><small style="opacity:0.6">~9h</small></div>
+        </div>
+        <div class="route-line"></div>
+        <div class="route-stop">
+          <div class="route-dot"></div>
+          <div class="route-stop-name">Mangaluru<br><small style="opacity:0.6">~14h</small></div>
+        </div>
+        <div class="route-line"></div>
+        <div class="route-stop">
+          <div class="route-dot"></div>
+          <div class="route-stop-name">Shoranur<br><small style="opacity:0.6">~20h</small></div>
+        </div>
+        <div class="route-line"></div>
+        <div class="route-stop">
+          <div class="route-dot"></div>
+          <div class="route-stop-name">Madurai<br><small style="opacity:0.6">~35h</small></div>
+        </div>
+        <div class="route-line"></div>
+        <div class="route-stop">
+          <div class="route-dot end"></div>
+          <div class="route-stop-name highlight">Rameswaram<br><small style="opacity:0.6">19:10 (+2 days)</small></div>
+        </div>
+      </div>
+      <div class="train-meta">
+        <div class="train-meta-item">
+          <label>Journey Time</label>
+          <span class="accent">~45h 50m</span>
+        </div>
+        <div class="train-meta-item">
+          <label>Distance</label>
+          <span>2,427 km</span>
+        </div>
+        <div class="train-meta-item">
+          <label>Departs</label>
+          <span>Tuesday, 21:20</span>
+        </div>
+        <div class="train-meta-item">
+          <label>Arrives</label>
+          <span>Thursday, 19:10</span>
+        </div>
+        <div class="train-meta-item">
+          <label>Return Train</label>
+          <span>16733 (Sundays)</span>
+        </div>
+      </div>
+      <div class="train-tip">
+        ⚠️ Board at <strong>Udhna (UDN)</strong> station — closer to most of Surat city than the main Surat (ST) station. Check which station your ticket is booked from. Arrive 30 min early.
+      </div>
+    </div>
+
+    <h3 style="font-family:'Cormorant Garamond',serif; font-size:22px; color:var(--sand); font-weight:300; margin-bottom:16px; margin-top:32px;">Ticket Classes & Fares</h3>
+    <div class="fare-grid">
+      <div class="fare-card recommended">
+        <div class="fare-class">Sleeper Class</div>
+        <div class="fare-code">SL</div>
+        <div class="fare-price">₹870 – ₹920 one-way</div>
+        <div class="fare-rec">★ Budget Pick</div>
+      </div>
+      <div class="fare-card recommended">
+        <div class="fare-class">3rd AC</div>
+        <div class="fare-code">3A</div>
+        <div class="fare-price">₹2,150 – ₹2,300 one-way</div>
+        <div class="fare-rec">★ Comfort Pick</div>
+      </div>
+      <div class="fare-card">
+        <div class="fare-class">2nd AC</div>
+        <div class="fare-code">2A</div>
+        <div class="fare-price">₹3,100 – ₹3,260 one-way</div>
+      </div>
+      <div class="fare-card">
+        <div class="fare-class">1st AC</div>
+        <div class="fare-code">1A</div>
+        <div class="fare-price">₹5,200+ one-way</div>
+      </div>
+    </div>
+    <div class="train-tip" style="margin-top:24px;">
+      📱 <strong>Book on IRCTC.gov.in or ixigo app.</strong> Tatkal opens at 10 AM (AC classes) and 11 AM (SL) — one day before travel. For a Tuesday departure, Tatkal opens Monday 10/11 AM. Always book <em>both</em> onward and return simultaneously.
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ ITINERARY ═══════════ -->
+<section id="itinerary">
+  <div class="section-label">Day-by-Day Plan</div>
+  <h2 class="section-title">The Complete <em>10-Day</em> Journey</h2>
+  <p class="section-intro">Depart Surat on Tuesday, arrive Rameswaram Thursday evening. Explore for two full days. Then sweep north through Kanyakumari, Madurai, Trichy, and Thanjavur on the return.</p>
+  <div class="ornament"><span>✦</span></div>
+
+  <div class="day-grid">
+
+    <!-- DAY 1-2: Travel -->
+    <div class="day-block fade-in">
+      <div class="day-number-col">
+        <div class="day-orb"><span class="day-n">Day</span><span class="day-num">1–2</span></div>
+      </div>
+      <div class="day-content">
+        <div class="day-header">
+          <div class="day-location">Surat → On Train → South India</div>
+          <div class="day-headline">The Long Ride <em>South</em></div>
+          <div class="day-desc">Board Train 16734 at Udhna (Surat) at 21:20 on Tuesday. The 46-hour journey takes you through Goa's coastline, Mangaluru's port city, Kerala's lush greenery, and into Tamil Nadu. Keep your window seat — this is one of India's most scenic rail routes.</div>
+        </div>
+        <div class="stops-list">
+          <div class="stop-card">
+            <div class="stop-icon icon-travel">🚆</div>
+            <div class="stop-body">
+              <div class="stop-time">Tuesday 21:20</div>
+              <div class="stop-name">Board at Udhna (Surat)</div>
+              <div class="stop-desc">Train 16734 OKHA RMM EXP. Settle in, the journey to the south begins. Pass through Goa coast at dawn, Mangaluru mid-morning of Day 2, Kerala's backwaters by afternoon.</div>
+              <div class="stop-tip">Carry home-cooked food for both days. Pantry car food is basic. Stock up at Surat before boarding.</div>
+            </div>
+            <div class="stop-meta">
+              <span class="duration-badge">46 hrs</span>
+              <span class="cost-badge">₹870–920</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 3: Arrive -->
+    <div class="day-block fade-in">
+      <div class="day-number-col">
+        <div class="day-orb"><span class="day-n">Day</span><span class="day-num">3</span></div>
+      </div>
+      <div class="day-content">
+        <div class="day-header">
+          <div class="day-location">Rameswaram, Tamil Nadu</div>
+          <div class="day-headline">Arrive at the <em>Sacred Island</em></div>
+          <div class="day-desc">Train arrives at 19:10. Check into your hotel, freshen up, and make your way to Agni Teertham for the evening sea bath — the perfect gentle introduction to Rameswaram.</div>
+        </div>
+        <div class="stops-list">
+          <div class="stop-card">
+            <div class="stop-icon icon-travel">🚉</div>
+            <div class="stop-body">
+              <div class="stop-time">19:10 — Arrive</div>
+              <div class="stop-name">Rameswaram Railway Station</div>
+              <div class="stop-desc">The station is small and central. Hotels on Car Street are 10–15 min by auto (₹50–80). Pre-book your hotel — Rameswaram fills up fast on weekends.</div>
+            </div>
+            <div class="stop-meta"><span class="duration-badge">Check in</span></div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-icon icon-temple">🌊</div>
+            <div class="stop-body">
+              <div class="stop-time">20:30 PM — Evening</div>
+              <div class="stop-name">Agni Teertham — Sacred Sea Shore</div>
+              <div class="stop-desc">The sacred stretch of sea just outside the Ramanathaswamy Temple. Devotees take a ritual holy dip here before entering the temple. Open 24 hours. Beautiful in the evening with temple bells echoing and boats on the water. Boating available (₹100).</div>
+              <div class="stop-tip">Evening visit for atmosphere. Come back early morning (5:30 AM) for the actual ritual bath before temple darshan.</div>
+            </div>
+            <div class="stop-meta">
+              <span class="rating">⭐ 4.3</span>
+              <span class="duration-badge">45 min</span>
+              <span class="cost-badge">Free</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 4: Rameswaram Main -->
+    <div class="day-block fade-in">
+      <div class="day-number-col">
+        <div class="day-orb"><span class="day-n">Day</span><span class="day-num">4</span></div>
+      </div>
+      <div class="day-content">
+        <div class="day-header">
+          <div class="day-location">Rameswaram Island</div>
+          <div class="day-headline"><em>Temple</em> Day — The Heart of the Pilgrimage</div>
+          <div class="day-desc">The main temple day. Start at 5:30 AM for the 22-theertham bath ritual, then explore the island's spiritual landmarks. This is the most sacred day of the trip.</div>
+        </div>
+        <div class="stops-list">
+          <div class="stop-card">
+            <div class="stop-icon icon-temple">🛕</div>
+            <div class="stop-body">
+              <div class="stop-time">5:30 AM — Start Early</div>
+              <div class="stop-name">Ramanathaswamy Temple — Jyotirlinga</div>
+              <div class="stop-desc">One of India's 12 Jyotirlingas and one of the 4 Char Dhams. The world's longest temple corridor (1,200 metres). The centrepiece ritual: the 22 holy theertham baths inside — priests pour sacred water from each of 22 wells as you walk the corridor. Expect to get completely drenched. 4 main gopurams up to 53 metres tall. The inner sanctum houses the Ramalingam — a Shivlinga said to have been consecrated by Lord Rama himself.</div>
+              <div class="stop-tip">Carry 2 changes of clothes. General queue at 5:30 AM is fastest. No camera/phone inside. Hire a guide (₹200–300) for the full spiritual context.</div>
+            </div>
+            <div class="stop-meta">
+              <span class="rating">⭐ 4.7</span>
+              <span class="duration-badge">2.5–3 hrs</span>
+              <span class="cost-badge">Free</span>
+            </div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-icon icon-temple">🙏</div>
+            <div class="stop-body">
+              <div class="stop-time">9:30 AM</div>
+              <div class="stop-name">Panchmukhi Hanuman Temple & Floating Stones</div>
+              <div class="stop-desc">Spiritually second only to the main temple. Houses the legendary floating stones (Ram Setu stones) — ancient stones that actually float on water, believed used by Vanarasena to build the bridge to Lanka. The five-faced Hanuman idol is exceptionally rare and powerful. Free entry, photography allowed outside.</div>
+              <div class="stop-tip">The floating stone demonstration is genuinely impressive — even skeptics are surprised. Don't skip this.</div>
+            </div>
+            <div class="stop-meta">
+              <span class="rating">⭐ 4.6</span>
+              <span class="duration-badge">45 min</span>
+              <span class="cost-badge">Free</span>
+            </div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-icon icon-food">🍽️</div>
+            <div class="stop-body">
+              <div class="stop-time">10:45 AM — Breakfast</div>
+              <div class="stop-name">Sri Murugan Mess</div>
+              <div class="stop-desc">The most beloved vegetarian restaurant in Rameswaram, steps from the temple's north gate. Idli, garlic dosa, sambar, three chutneys. Everything is fresh, authentic, and dirt cheap — a full meal for ₹100–150. Genuinely one of the best South Indian breakfasts you'll have anywhere.</div>
+              <div class="stop-tip">Opens 8 AM. Go before 10:30 or items run out. Cash only.</div>
+            </div>
+            <div class="stop-meta">
+              <span class="rating">⭐ 4.4</span>
+              <span class="duration-badge">45 min</span>
+              <span class="cost-badge">₹100–150</span>
+            </div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-icon icon-view">⛰️</div>
+            <div class="stop-body">
+              <div class="stop-time">12:00 PM</div>
+              <div class="stop-name">Gandhamadhana Parvatham — Hilltop Viewpoint</div>
+              <div class="stop-desc">The highest point on Rameswaram island. A two-storey temple housing Lord Rama's sacred footprints (Ramar Padam) on a chakra. Tradition says this is where Rama planned the Ram Setu bridge construction and Hanuman took his leap. Only 30 steps to climb. 360° panoramic views of the island, sea, temple gopurams, and Sri Lanka's coastline on a clear day.</div>
+              <div class="stop-tip">Best at golden hour (5–6 PM) for dramatic skies. Cool breeze, very peaceful. Less crowded than the main temple.</div>
+            </div>
+            <div class="stop-meta">
+              <span class="rating">⭐ 4.5</span>
+              <span class="duration-badge">1 hr</span>
+              <span class="cost-badge">Free</span>
+            </div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-icon icon-beach">🌉</div>
+            <div class="stop-body">
+              <div class="stop-time">5:00 PM — Sunset</div>
+              <div class="stop-name">Pamban Bridge — Engineering Marvel</div>
+              <div class="stop-desc">India's iconic sea bridge connecting Rameswaram island to mainland India. The 1914 railway bridge has been replaced by the new vertical-lift Pamban Bridge (inaugurated April 2025) — the first of its kind in Asia. The vertical lift mechanism allows ships to pass beneath. Time your visit to watch a train cross. Extremely windy — hold your belongings.</div>
+              <div class="stop-tip">For the best view, walk to the viewing area on the road bridge. Sunset here is spectacular — sea on both sides turning gold.</div>
+            </div>
+            <div class="stop-meta">
+              <span class="rating">⭐ 4.7</span>
+              <span class="duration-badge">1 hr</span>
+              <span class="cost-badge">Free</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 5: Dhanushkodi -->
+    <div class="day-block fade-in">
+      <div class="day-number-col">
+        <div class="day-orb"><span class="day-n">Day</span><span class="day-num">5</span></div>
+      </div>
+      <div class="day-content">
+        <div class="day-header">
+          <div class="day-location">Dhanushkodi & Beaches</div>
+          <div class="day-headline">Land's <em>End</em> — The Edge of India</div>
+          <div class="day-desc">Today you go to the very tip of India. Dhanushkodi is where the Bay of Bengal meets the Indian Ocean, and where the country literally ends. Ghost town ruins, two seas meeting, Sri Lanka visible 23 km away.</div>
+        </div>
+        <div class="stops-list">
+          <div class="stop-card">
+            <div class="stop-icon icon-temple">🛕</div>
+            <div class="stop-body">
+              <div class="stop-time">7:00 AM</div>
+              <div class="stop-name">Kothandaramaswamy Temple (Kodanda Ramar)</div>
+              <div class="stop-desc">Ancient shore temple on the road to Dhanushkodi. The setting is otherworldly — ocean on both sides of the road for 4 km as you approach. This is believed to be where Vibhishana (Ravana's brother) surrendered to Lord Rama, seeking his protection. Serene, rarely crowded, exceptional for morning photography.</div>
+              <div class="stop-tip">Drive/ride slowly on this stretch — two seas framing the road is one of the most beautiful sights in all of India.</div>
+            </div>
+            <div class="stop-meta">
+              <span class="rating">⭐ 4.5</span>
+              <span class="duration-badge">45 min</span>
+              <span class="cost-badge">Free</span>
+            </div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-icon icon-beach">🏖️</div>
+            <div class="stop-body">
+              <div class="stop-time">8:30 AM</div>
+              <div class="stop-name">Dhanushkodi Beach — Tip of India</div>
+              <div class="stop-desc">The final point of land before Lanka. Bay of Bengal to one side, Indian Ocean to the other — two seas with visibly different colors meeting in a dramatic confluence. The ghost town ruins of the original Dhanushkodi (destroyed in the 1964 cyclone) — crumbling station, church walls — add to the haunting atmosphere. Fishermen, sea birds, and absolute silence beyond the tourist hubbub at the tip. Sri Lanka is 23 km by water. On clear winter mornings you can see it.</div>
+              <div class="stop-tip">Take a shared jeep from Kothandaramaswamy Temple (₹80–100/person each way). Private vehicles not allowed beyond a point. Arrive before 9 AM for best light and before the crowd. Carry water — no shops at the very tip.</div>
+            </div>
+            <div class="stop-meta">
+              <span class="rating">⭐ 4.7</span>
+              <span class="duration-badge">2 hrs</span>
+              <span class="cost-badge">Jeep ₹100</span>
+            </div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-icon icon-beach">🏊</div>
+            <div class="stop-body">
+              <div class="stop-time">2:00 PM — Afternoon</div>
+              <div class="stop-name">Ariyaman Beach</div>
+              <div class="stop-desc">A clean, calm, and far less touristy beach 15 km from Rameswaram town. The water is shallow and wave-free — safe for swimming. Clear turquoise water, no crowds. Excellent for an afternoon dip after the morning's intensity. Food stalls nearby for fresh seafood.</div>
+              <div class="stop-tip">Watch out for jellyfish in May–July. Wear covered swimwear. Freshwater shower available (₹20).</div>
+            </div>
+            <div class="stop-meta">
+              <span class="rating">⭐ 4.3</span>
+              <span class="duration-badge">1.5 hrs</span>
+              <span class="cost-badge">Entry ₹30</span>
+            </div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-icon icon-view">🌅</div>
+            <div class="stop-body">
+              <div class="stop-time">5:30 PM — Sunset</div>
+              <div class="stop-name">Mandapam Beach & Sunset Point</div>
+              <div class="stop-desc">Quiet sunset spot on the mainland side, just before the Pamban Bridge. Less visited than Rameswaram's main beaches. Peaceful fishing village atmosphere, beautiful sea views, and a great spot to watch the sky turn orange before heading back for dinner.</div>
+            </div>
+            <div class="stop-meta">
+              <span class="duration-badge">1 hr</span>
+              <span class="cost-badge">Free</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 6: Kanyakumari -->
+    <div class="day-block fade-in">
+      <div class="day-number-col">
+        <div class="day-orb"><span class="day-n">Day</span><span class="day-num">6</span></div>
+      </div>
+      <div class="day-content">
+        <div class="day-header">
+          <div class="day-location">Kanyakumari, Tamil Nadu — 3.5 hrs by bus</div>
+          <div class="day-headline">Where <em>Three Seas</em> Meet</div>
+          <div class="day-desc">Take the TNSTC express bus (₹200, 3.5 hrs) from Rameswaram to Kanyakumari — the southernmost point of mainland India. The Arabian Sea, Bay of Bengal, and Indian Ocean converge here.</div>
+        </div>
+        <div class="stops-list">
+          <div class="stop-card">
+            <div class="stop-icon icon-temple">🛕</div>
+            <div class="stop-body">
+              <div class="stop-time">11:00 AM</div>
+              <div class="stop-name">Kumari Amman Temple (Bhagavathi Amman)</div>
+              <div class="stop-desc">One of the 108 Shakti Peethas, dedicated to Goddess Kanyakumari — the virgin form of Goddess Parvati doing penance to marry Lord Shiva. The goddess wears a diamond nose ring so brilliantly faceted that sailors could historically see its reflection from the sea. Located right at the point where three seas meet. Opens 4:30 AM.</div>
+              <div class="stop-tip">Dress conservatively. Men must remove shirts to enter. Long queues on weekends — visit on a weekday morning for a peaceful experience.</div>
+            </div>
+            <div class="stop-meta">
+              <span class="rating">⭐ 4.6</span>
+              <span class="duration-badge">1 hr</span>
+              <span class="cost-badge">Free</span>
+            </div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-icon icon-heritage">🏛️</div>
+            <div class="stop-body">
+              <div class="stop-time">12:30 PM</div>
+              <div class="stop-name">Vivekananda Rock Memorial + Thiruvalluvar Statue</div>
+              <div class="stop-desc">Two iconic rock islands just offshore, reached by ferry (₹50). The Vivekananda Rock Memorial (1970) marks where Swami Vivekananda meditated in 1892, before his historic speech at the Parliament of World Religions in Chicago. Includes a beautiful meditation hall and the Shripada Mandapam (Goddess's footprints). Alongside it: the 133-foot Thiruvalluvar Statue (2000), representing the 133 chapters of the Thirukkural. A glass bridge connects both rocks. The views of the coastline are extraordinary.</div>
+              <div class="stop-tip">Buy ferry tickets online to avoid 2-hour queues. Last ferry back is at 4:30 PM. Morning visit is less crowded and the light is better for photos.</div>
+            </div>
+            <div class="stop-meta">
+              <span class="rating">⭐ 4.6</span>
+              <span class="duration-badge">2 hrs</span>
+              <span class="cost-badge">Ferry ₹50</span>
+            </div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-icon icon-view">🌇</div>
+            <div class="stop-body">
+              <div class="stop-time">5:30 PM — Don't Miss</div>
+              <div class="stop-name">Sunset at the Triveni Sangam</div>
+              <div class="stop-desc">Considered one of the most moving sunsets in India — the sun descends directly into the sea at the convergence of three oceans. The sky turns extraordinary shades of orange and pink. Crowds gather along the seawall. Come 30 minutes early for a good vantage point. On full moon nights, you can also see both sunset and moonrise simultaneously from the eastern and western beaches — one of India's most rare natural spectacles.</div>
+              <div class="stop-tip">Sunset Point is free. The beach area gets very crowded on holidays. The Gandhi Mandapam viewpoint (where Gandhi's ashes were kept before immersion) offers a slightly elevated and less crowded viewing spot.</div>
+            </div>
+            <div class="stop-meta">
+              <span class="rating">⭐ 4.5</span>
+              <span class="duration-badge">1 hr</span>
+              <span class="cost-badge">Free</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 7: Madurai -->
+    <div class="day-block fade-in">
+      <div class="day-number-col">
+        <div class="day-orb"><span class="day-n">Day</span><span class="day-num">7</span></div>
+      </div>
+      <div class="day-content">
+        <div class="day-header">
+          <div class="day-location">Madurai, Tamil Nadu — 3 hrs by bus/train</div>
+          <div class="day-headline">The <em>Temple City</em> of Madurai</div>
+          <div class="day-desc">Madurai is one of the oldest continually inhabited cities in the world — over 2,500 years. Its Meenakshi Amman Temple is the jewel of Dravidian architecture. Bus (₹150) or train from Kanyakumari.</div>
+        </div>
+        <div class="stops-list">
+          <div class="stop-card">
+            <div class="stop-icon icon-temple">🛕</div>
+            <div class="stop-body">
+              <div class="stop-time">10:00 AM</div>
+              <div class="stop-name">Meenakshi Amman Temple</div>
+              <div class="stop-desc">One of the grandest temple complexes on the planet — 14 soaring gopurams (towers) covered in thousands of hand-painted sculptures, the legendary Hall of 1,000 Pillars, 8 shrines, and a sacred tank called Porthamarai Kulam. Dedicated to Goddess Meenakshi (Parvati) and Lord Sundareswarar (Shiva). The temples within temples within corridors are genuinely labyrinthine. 15 acres total. The evening aarti (around 7 PM) when the god is ceremonially carried to the goddess's chamber is unforgettable.</div>
+              <div class="stop-tip">No phones inside. Visit both morning and evening (aarti at 9 PM is extraordinary). Photography allowed in the Hall of 1000 Pillars. A museum inside costs ₹50.</div>
+            </div>
+            <div class="stop-meta">
+              <span class="rating">⭐ 4.7</span>
+              <span class="duration-badge">2.5 hrs</span>
+              <span class="cost-badge">Free</span>
+            </div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-icon icon-heritage">🏛️</div>
+            <div class="stop-body">
+              <div class="stop-time">1:30 PM</div>
+              <div class="stop-name">Thirumalai Nayakkar Palace</div>
+              <div class="stop-desc">17th century royal palace of King Thirumalai Nayak, just 5 minutes' walk from the temple. A magnificent example of Indo-Saracenic architecture with massive pillars, grand courtyards, and ornate stucco work. Only a fraction of the original palace remains — the rest was dismantled to build a palace in Thanjavur — but what's left is stunning. Sound and light show in the evening narrates the king's story (Tamil: 6:45 PM, English: 8:00 PM).</div>
+              <div class="stop-tip">The evening sound and light show is worth ₹100. The courtyard is excellent for photography in the soft afternoon light.</div>
+            </div>
+            <div class="stop-meta">
+              <span class="rating">⭐ 4.4</span>
+              <span class="duration-badge">1 hr</span>
+              <span class="cost-badge">₹50 entry</span>
+            </div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-icon icon-food">🥤</div>
+            <div class="stop-body">
+              <div class="stop-time">3:00 PM — Must Do</div>
+              <div class="stop-name">Madurai Famous Jigarthanda — Since 1977</div>
+              <div class="stop-desc">Madurai's legendary cold drink and one of India's most unique beverages. Layers of badam pisin (edible almond tree gum), sweetened condensed milk, nannari syrup (sarsaparilla root), and ice cream. The texture is unlike anything else — chewy, creamy, floral, cold. Shops on nearly every street, but the original 1977 outlet near Kamarajar Salai is the one worth seeking out. Mini size (₹60) or full (₹80).</div>
+              <div class="stop-tip">Don't leave Madurai without having at least one Jigarthanda. In hot weather (which Madurai always is), it is transcendently refreshing.</div>
+            </div>
+            <div class="stop-meta">
+              <span class="rating">⭐ 4.5</span>
+              <span class="duration-badge">30 min</span>
+              <span class="cost-badge">₹60–80</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 8: Trichy + Thanjavur -->
+    <div class="day-block fade-in">
+      <div class="day-number-col">
+        <div class="day-orb"><span class="day-n">Day</span><span class="day-num">8</span></div>
+      </div>
+      <div class="day-content">
+        <div class="day-header">
+          <div class="day-location">Trichy & Thanjavur — Chola Heartland</div>
+          <div class="day-headline">The <em>Ancient Empire's</em> Legacy</div>
+          <div class="day-desc">The final heritage day before boarding the return train. Trichy's world-record temple and ancient rockfort in the morning, then the Chola masterpiece at Thanjavur in the afternoon. Board the return train from Madurai or Trichy in the evening.</div>
+        </div>
+        <div class="stops-list">
+          <div class="stop-card">
+            <div class="stop-icon icon-temple">🛕</div>
+            <div class="stop-body">
+              <div class="stop-time">8:30 AM — Srirangam, Trichy</div>
+              <div class="stop-name">Sri Ranganathaswamy Temple — World's Largest</div>
+              <div class="stop-desc">The largest functioning Hindu temple complex in the world — 156 acres, 21 gopurams, 7 concentric enclosures (prakarams). The outermost enclosures are literally a functioning town — streets, markets, houses. As you walk inward through the 7 walls, the sacred atmosphere deepens. The 236-foot Rajagopuram is one of the tallest temple towers in Asia and visible from miles away. Dedicated to Lord Ranganatha (Vishnu reclining on Adishesha). Free entry to outer areas.</div>
+              <div class="stop-tip">Hire a guide (₹300–400) — the temple's scale is too vast to navigate meaningfully alone. Allow at least 2 hours. Visit on a weekday to avoid queues at the inner sanctum.</div>
+            </div>
+            <div class="stop-meta">
+              <span class="rating">⭐ 4.6</span>
+              <span class="duration-badge">2 hrs</span>
+              <span class="cost-badge">Free</span>
+            </div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-icon icon-view">🏔️</div>
+            <div class="stop-body">
+              <div class="stop-time">11:00 AM</div>
+              <div class="stop-name">Rockfort Temple — Trichy (Uchipillaiyar)</div>
+              <div class="stop-desc">An ancient temple perched 83 metres high on a massive granite rock in the heart of Trichy. Climb 437 rock-cut steps through ancient cave shrines to reach the Uchipillaiyar (Ganesha) temple at the summit. The panoramic view of Trichy, the Kaveri river, and the distant gopuram of Srirangam visible below is extraordinary. The rock itself is 3.8 billion years old — one of the oldest geological formations in India. Opens 6 AM.</div>
+              <div class="stop-tip">Wear comfortable shoes. Steps are steep but manageable. Go in the morning before 10 AM — the rock heats up intensely by midday. No footwear beyond a certain point.</div>
+            </div>
+            <div class="stop-meta">
+              <span class="rating">⭐ 4.7</span>
+              <span class="duration-badge">1.5 hrs</span>
+              <span class="cost-badge">Free</span>
+            </div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-icon icon-heritage">🏛️</div>
+            <div class="stop-body">
+              <div class="stop-time">2:00 PM — Thanjavur (1 hr from Trichy)</div>
+              <div class="stop-name">Brihadeeswarar Temple — UNESCO World Heritage</div>
+              <div class="stop-desc">The greatest monument of the Chola Empire and arguably the finest achievement of Dravidian architecture anywhere. Built by Emperor Raja Raja Chola I in 1010 AD — entirely of granite, without a drop of mortar. The vimana (main tower) rises 66 metres and casts no shadow at noon due to its precise construction. The massive monolithic Nandi (5.5m x 2.5m) guards the entrance. The 1000-year-old frescoes on the interior walls are still visible. It is astonishing that this was built over 1,000 years ago. A UNESCO World Heritage Site since 1987.</div>
+              <div class="stop-tip">Visit at 4 PM for the golden hour light on the granite. Free entry. Photography allowed throughout. The evening puja at sunset is worth staying for.</div>
+            </div>
+            <div class="stop-meta">
+              <span class="rating">⭐ 4.8</span>
+              <span class="duration-badge">1.5 hrs</span>
+              <span class="cost-badge">Free</span>
+            </div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-icon icon-heritage">📚</div>
+            <div class="stop-body">
+              <div class="stop-time">4:30 PM</div>
+              <div class="stop-name">Saraswathi Mahal Library</div>
+              <div class="stop-desc">One of Asia's oldest libraries, within the Thanjavur Palace complex. Contains over 49,000 manuscripts in Sanskrit, Tamil, Telugu, Marathi and other languages — on palm leaf and paper. Some manuscripts date to the 16th century. The museum section displays royal artefacts, bronze statues, paintings from the Ramayana, and a 92-foot whale skeleton. Entry ₹50. Closes 5:30 PM.</div>
+            </div>
+            <div class="stop-meta">
+              <span class="rating">⭐ 4.3</span>
+              <span class="duration-badge">1 hr</span>
+              <span class="cost-badge">₹50</span>
+            </div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-icon icon-travel">🚆</div>
+            <div class="stop-body">
+              <div class="stop-time">Evening</div>
+              <div class="stop-name">Board Return Train 16733 (Madurai or Trichy)</div>
+              <div class="stop-desc">Train 16733 RMM OKHA EXP departs Rameswaram on Sundays at 20:00 and passes through Madurai (~11 PM) and Trichy (~1 AM). Board at either station — no need to return to Rameswaram. Arrives Surat approximately Day 10 morning.</div>
+              <div class="stop-tip">You booked this simultaneously with your onward ticket on IRCTC when you first planned the trip, right? If not — book immediately. Return trains fill up too.</div>
+            </div>
+            <div class="stop-meta">
+              <span class="duration-badge">~46 hrs</span>
+              <span class="cost-badge">₹870–920</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 9-10: Return -->
+    <div class="day-block fade-in">
+      <div class="day-number-col">
+        <div class="day-orb"><span class="day-n">Day</span><span class="day-num">9–10</span></div>
+      </div>
+      <div class="day-content">
+        <div class="day-header">
+          <div class="day-location">On Train — Heading North</div>
+          <div class="day-headline">The <em>Long Return</em> Home</div>
+          <div class="day-desc">The 46-hour return journey gives you time to rest, reflect, and look back at what you've seen. The same scenic coastal route in reverse — Tamil Nadu into Kerala, Mangaluru, Goa coast, and finally Surat. Arrive home Day 10 morning.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ BUDGET ═══════════ -->
+<div class="budget-section full-bleed" id="budget">
+  <div style="max-width:1300px; margin:0 auto; padding:0 6vw;">
+    <div class="section-label">Money Matters</div>
+    <h2 class="section-title">What It <em>Actually Costs</em></h2>
+    <p class="section-intro">A full 10-day trip through Tamil Nadu's greatest sites — comfortably achievable in ₹10,000–15,000 per person.</p>
+
+    <div class="budget-summary">
+      <div class="budget-sum-card">
+        <label>Budget Option (SL Class)</label>
+        <div class="amount">₹8,500</div>
+        <div class="sub">Sleeper train · guesthouses · local buses</div>
+      </div>
+      <div class="budget-sum-card">
+        <label>Comfortable (3AC + Hotels)</label>
+        <div class="amount">₹13,500</div>
+        <div class="sub">3AC train · budget hotels · occasional taxi</div>
+      </div>
+      <div class="budget-sum-card">
+        <label>Your Budget Limit</label>
+        <div class="amount green">₹15,000</div>
+        <div class="sub">Well within range — room to upgrade hotels</div>
+      </div>
+    </div>
+
+    <table class="budget-table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Details</th>
+          <th>Budget (SL)</th>
+          <th>Comfortable (3AC)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>🚆 Train (Surat → RMM)</td>
+          <td>Train 16734 onward journey, ~46 hrs</td>
+          <td class="amount">₹870</td>
+          <td class="amount">₹2,200</td>
+        </tr>
+        <tr>
+          <td>🚆 Train (RMM → Surat)</td>
+          <td>Train 16733 return journey, ~46 hrs</td>
+          <td class="amount">₹870</td>
+          <td class="amount">₹2,200</td>
+        </tr>
+        <tr>
+          <td>🏨 Hotels (4 nights)</td>
+          <td>Rameswaram 2N · Kanyakumari 1N · Madurai 1N</td>
+          <td class="amount">₹1,800</td>
+          <td class="amount">₹3,600</td>
+        </tr>
+        <tr>
+          <td>🍽️ Food (8 days)</td>
+          <td>South Indian mess/restaurants, ~₹250–400/day</td>
+          <td class="amount">₹2,000</td>
+          <td class="amount">₹3,200</td>
+        </tr>
+        <tr>
+          <td>🚌 Local Transport</td>
+          <td>TNSTC buses (RMM→KK→MDU→TRY) + autos</td>
+          <td class="amount">₹600</td>
+          <td class="amount">₹1,000</td>
+        </tr>
+        <tr>
+          <td>🎟️ Entry Fees</td>
+          <td>Ferry ₹50, Ariyaman ₹30, Palace ₹50, Library ₹50, misc</td>
+          <td class="amount">₹400</td>
+          <td class="amount">₹600</td>
+        </tr>
+        <tr>
+          <td>🛍️ Shopping & Souvenirs</td>
+          <td>Conch shells, sea salt, Madurai cotton, Thanjavur brass</td>
+          <td class="amount">₹500</td>
+          <td class="amount">₹1,200</td>
+        </tr>
+        <tr>
+          <td><strong>Total</strong></td>
+          <td><strong>Complete 10-day trip per person</strong></td>
+          <td class="amount total">₹7,040</td>
+          <td class="amount total">₹14,000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════ HOTELS ═══════════ -->
+<section id="hotels">
+  <div class="section-label">Where to Stay</div>
+  <h2 class="section-title">Hotels Along the <em>Route</em></h2>
+  <p class="section-intro">Budget-friendly picks close to all attractions. Book at least 2–3 weeks in advance for Rameswaram — it fills up faster than you'd expect.</p>
+  <div class="ornament"><span>✦</span></div>
+
+  <div class="hotels-grid">
+    <div class="hotel-card">
+      <div class="hotel-city-bar" style="background:#FFF3E8; color:var(--saffron);">Rameswaram</div>
+      <div class="hotel-body">
+        <div class="hotel-name">Hotel Tamilnadu Unit II (TTDC)</div>
+        <div class="hotel-location">Near Railway Station</div>
+        <div class="hotel-meta">
+          <span class="hotel-tag">⭐ 4.4 (111 reviews)</span>
+          <span class="hotel-tag">Clean rooms</span>
+          <span class="hotel-tag">Near station</span>
+        </div>
+        <div class="hotel-price">₹900 <span>– ₹1,500 / night</span></div>
+        <div class="hotel-note">Government TTDC property. Reliable cleanliness, helpful staff. Book via Tamil Nadu tourism website for best rates.</div>
+      </div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-city-bar" style="background:#FFF3E8; color:var(--saffron);">Rameswaram</div>
+      <div class="hotel-body">
+        <div class="hotel-name">Budget Guesthouses (Car Street)</div>
+        <div class="hotel-location">East or West Car Street, near Temple</div>
+        <div class="hotel-meta">
+          <span class="hotel-tag">Walking distance</span>
+          <span class="hotel-tag">Various options</span>
+        </div>
+        <div class="hotel-price">₹500 <span>– ₹900 / night</span></div>
+        <div class="hotel-note">Check room before paying. Many small guesthouses on Car Street — ask to see the room first. Noisy but maximum temple access.</div>
+      </div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-city-bar" style="background:#E8F4FD; color:var(--sea-blue);">Kanyakumari</div>
+      <div class="hotel-body">
+        <div class="hotel-name">Hotel Tri Sea</div>
+        <div class="hotel-location">Near Seashore, walkable to ferry</div>
+        <div class="hotel-meta">
+          <span class="hotel-tag">⭐ 4.4 (11,601 reviews)</span>
+          <span class="hotel-tag">Sea view rooms</span>
+          <span class="hotel-tag">Ferry walkable</span>
+        </div>
+        <div class="hotel-price">₹1,200 <span>– ₹2,500 / night</span></div>
+        <div class="hotel-note">Best location in Kanyakumari — 7 min walk to the Vivekananda Rock ferry. Sea-view rooms book first. Call directly for better rates than OTAs.</div>
+      </div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-city-bar" style="background:#F0FAF0; color:var(--teal);">Madurai</div>
+      <div class="hotel-body">
+        <div class="hotel-name">Budget Guesthouses (Periyar Bus Stand Area)</div>
+        <div class="hotel-location">West Veli Street or Dindigul Road</div>
+        <div class="hotel-meta">
+          <span class="hotel-tag">Near temple</span>
+          <span class="hotel-tag">Multiple choices</span>
+        </div>
+        <div class="hotel-price">₹500 <span>– ₹1,200 / night</span></div>
+        <div class="hotel-note">The area around Periyar Bus Stand has dozens of budget options. Temple is within 10–15 min walk from most. Inspect before booking.</div>
+      </div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-city-bar" style="background:#FDF5E8; color:#8B5E00;">Kanyakumari — Beach Option</div>
+      <div class="hotel-body">
+        <div class="hotel-name">Hotel Sea Land</div>
+        <div class="hotel-location">East Car Street, near Beach</div>
+        <div class="hotel-meta">
+          <span class="hotel-tag">⭐ 4.4 (1,355 reviews)</span>
+          <span class="hotel-tag">Sea view</span>
+          <span class="hotel-tag">Central location</span>
+        </div>
+        <div class="hotel-price">₹800 <span>– ₹1,800 / night</span></div>
+        <div class="hotel-note">Sea-facing rooms offer direct views of Vivekananda Rock from your bed. Call Mr. Jaffer directly for the best room allocation.</div>
+      </div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-city-bar" style="background:#F5E8FD; color:#5A1A8A;">Thanjavur — If Overnight</div>
+      <div class="hotel-body">
+        <div class="hotel-name">Budget Hotels near Big Temple</div>
+        <div class="hotel-location">Ganesh Nagar or Srinivasam Pillai Road</div>
+        <div class="hotel-meta">
+          <span class="hotel-tag">Near UNESCO site</span>
+          <span class="hotel-tag">Budget-friendly</span>
+        </div>
+        <div class="hotel-price">₹600 <span>– ₹1,400 / night</span></div>
+        <div class="hotel-note">If you choose to stay overnight in Thanjavur before boarding the train, several decent hotels within 1 km of the Big Temple.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOD GUIDE ═══════════ -->
+<section id="food" style="background:var(--sand); padding:80px 6vw; max-width:none;">
+  <div style="max-width:1300px; margin:0 auto;">
+    <div class="section-label">Eat Your Way Through Tamil Nadu</div>
+    <h2 class="section-title">The <em>Food Guide</em></h2>
+    <p class="section-intro">South Indian temple-town food is its own cuisine — rice-based, coconut-forward, intensely flavoured. Here's what to seek out in each city.</p>
+    <div class="ornament"><span>✦</span></div>
+
+    <div class="food-grid">
+      <div class="food-card">
+        <div class="food-name">Idli & Garlic Dosa</div>
+        <div class="food-city">Rameswaram — Sri Murugan Mess</div>
+        <div class="food-desc">The standard breakfast of Rameswaram. Soft steamed idlis with coconut, tomato, and coriander chutneys plus thick sambar. The garlic dosa — crisp, golden, intensely aromatic — is the specialty. One of the best ₹100 meals in India.</div>
+        <div class="food-price">₹80–150 / meal</div>
+        <div class="food-where">Near North Gate, Ramanathaswamy Temple</div>
+      </div>
+      <div class="food-card">
+        <div class="food-name">Fish Fry & Prawn Curry</div>
+        <div class="food-city">Dhanushkodi / Rameswaram Coast</div>
+        <div class="food-desc">Fresh catch from the morning's boats, fried in a Chettinad-style masala or made into a tangy kulambu (curry). Street stalls near Ariyaman Beach serve the freshest seafood of the trip — directly from local fishermen. Non-vegetarians should not miss this.</div>
+        <div class="food-price">₹120–200 / plate</div>
+        <div class="food-where">Stalls near Ariyaman Beach & Mandapam</div>
+      </div>
+      <div class="food-card">
+        <div class="food-name">Jigarthanda</div>
+        <div class="food-city">Madurai — Original Since 1977</div>
+        <div class="food-desc">Madurai's singular contribution to world beverages. Badam pisin (almond tree gum — gelatinous and chewy), cold sweetened milk, nannari (sarsaparilla) syrup, and a scoop of ice cream. Cold, sweet, floral, and utterly unique. The 1977 original near Kamarajar Salai is the benchmark.</div>
+        <div class="food-price">₹60–80</div>
+        <div class="food-where">Kamarajar Salai, Madurai (Original)</div>
+      </div>
+      <div class="food-card">
+        <div class="food-name">Madurai Mutton Biryani</div>
+        <div class="food-city">Madurai</div>
+        <div class="food-desc">Madurai-style biryani is distinct from all others — short-grain seeraga samba rice, cooked on dum with tender mutton, whole spices, and a generous amount of onion. Served with raita and salna (a thin gravy). Non-vegetarians: this is a bucket list meal. Famous spots: Hotel A.R. and Subramanya Bhavan.</div>
+        <div class="food-price">₹150–250 / plate</div>
+        <div class="food-where">Hotel A.R., Biryani Zone — Madurai</div>
+      </div>
+      <div class="food-card">
+        <div class="food-name">Meals Banana Leaf</div>
+        <div class="food-city">All Cities — Lunch Staple</div>
+        <div class="food-desc">The Tamil Nadu "meals" lunch — rice served on a banana leaf with sambar, rasam, kootu (vegetables), poriyal, appalam, and pickle. Unlimited refills of rice. Fresh, balanced, and nourishing. Budget ₹80–120. Found in any "mess" or hotel in any town on this route.</div>
+        <div class="food-price">₹80–120 / thali</div>
+        <div class="food-where">Any local "mess" — look for packed places</div>
+      </div>
+      <div class="food-card">
+        <div class="food-name">Kanyakumari Seafood & Meen Kulambu</div>
+        <div class="food-city">Kanyakumari</div>
+        <div class="food-desc">At the tip of India where three seas meet, the fish is extraordinarily fresh. Meen kulambu (fish curry in tamarind-coconut gravy), seer fish (vanjaram) fry, and prawn masala are the local specialties. Small restaurants along the beachfront road serve these. Try the morning fresh catch before 11 AM.</div>
+        <div class="food-price">₹150–250 / meal</div>
+        <div class="food-where">Beachfront restaurants, Kanyakumari town</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TIPS ═══════════ -->
+<div class="tips-section full-bleed" id="tips">
+  <div style="max-width:1300px; margin:0 auto;">
+    <div class="section-label">Insider Knowledge</div>
+    <h2 class="section-title" style="color:var(--sand);">Everything You Need to <em>Know</em></h2>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-category">Train Booking</div>
+        <ul class="tip-list">
+          <li>Only 1 direct weekly train — Train 16734, Tuesdays. Book 60 days ahead on IRCTC.</li>
+          <li>Board at Udhna (UDN), not Surat (ST) — closer to city, less crowded.</li>
+          <li>Book onward and return tickets simultaneously. Return train 16733 departs Sundays.</li>
+          <li>Tatkal (last-minute) opens 10 AM for AC, 11 AM for SL — exactly 1 day before travel.</li>
+          <li>Can board return train at Madurai or Trichy — no need to go back to Rameswaram.</li>
+          <li>Download IRCTC Rail Connect app. Enable UPI for instant payment at booking.</li>
+        </ul>
+      </div>
+      <div class="tip-card">
+        <div class="tip-category">Temple Etiquette</div>
+        <ul class="tip-list">
+          <li>Carry 2–3 changes of clothes for Rameswaram — the 22-well bath drenches you completely.</li>
+          <li>No phones/cameras inside main temple sanctums (Rameswaram, Meenakshi).</li>
+          <li>Dhoti rental for men available outside temples: ₹50–80. Wear it properly.</li>
+          <li>Hire a local guide at Ramanathaswamy (₹200–300) and Srirangam (₹300–400) — enormous difference in experience.</li>
+          <li>Arrive before 6 AM for all major temples. General queues move faster than paid special darshan in the morning.</li>
+          <li>Temple dress: men should cover shoulders (or remove shirt). Women: saree or salwar kameez preferred.</li>
+        </ul>
+      </div>
+      <div class="tip-card">
+        <div class="tip-category">Money & Safety</div>
+        <ul class="tip-list">
+          <li>Carry ₹3,000–4,000 cash. ATMs in Rameswaram can run dry on weekends and festival days.</li>
+          <li>UPI (PhonePe/GPay) works at most food stalls and hotels — but not jeep drivers.</li>
+          <li>Beware of touts outside temples. Official guides wear government ID cards.</li>
+          <li>Shared jeeps to Dhanushkodi: fixed rate ₹80–100/person. Don't pay more.</li>
+          <li>Never pay for "VIP darshan" from people outside the temple. Only buy inside from official counters.</li>
+          <li>Keep a photocopy of your Aadhaar card. Some hotels require ID on check-in.</li>
+        </ul>
+      </div>
+      <div class="tip-card">
+        <div class="tip-category">Weather & Timing</div>
+        <ul class="tip-list">
+          <li>Best season: October to March. Avoid April–June (extreme heat, 42°C+).</li>
+          <li>Monsoon (July–September): heavy rain, ferries to Vivekananda Rock may be cancelled.</li>
+          <li>Dhanushkodi is best before 9 AM — crowds arrive after 10, heat is brutal by noon.</li>
+          <li>Sunset at Kanyakumari: check exact time before visiting — arrive 30 min early.</li>
+          <li>On full moon days at Kanyakumari: watch both sunset (west) and moonrise (east) simultaneously.</li>
+          <li>Rameswaram is humid year-round. Light cotton clothes are essential.</li>
+        </ul>
+      </div>
+      <div class="tip-card">
+        <div class="tip-category">Transport on the Ground</div>
+        <ul class="tip-list">
+          <li>TNSTC express buses are fast and cheap: RMM→KK ₹200, KK→MDU ₹150, MDU→TRY ₹80.</li>
+          <li>Within Rameswaram: cycle rickshaws (₹50–80) and autos (₹60–100) for short trips.</li>
+          <li>Dhanushkodi is off-limits to private vehicles. Only shared jeeps allowed beyond Kothandaramaswamy Temple.</li>
+          <li>Srirangam is 9 km from Trichy — TSRTC bus from Trichy Bus Stand (₹15) runs every 10 minutes.</li>
+          <li>Thanjavur is 55 km from Trichy — shared taxi (₹80–100/seat) or express bus (₹30).</li>
+          <li>Download MakeMyTrip or RedBus apps for bus bookings. Tamil Nadu buses are often reservable online.</li>
+        </ul>
+      </div>
+      <div class="tip-card">
+        <div class="tip-category">Don't Miss</div>
+        <ul class="tip-list">
+          <li>Rameswaram: floating stones at Panchmukhi Hanuman — genuinely one of India's most unusual experiences.</li>
+          <li>Dhanushkodi: the stretch of road with ocean on BOTH sides approaching the temple.</li>
+          <li>Kanyakumari: the sunset at Triveni Sangam — position yourself on the western side rocks.</li>
+          <li>Madurai: the evening aarti at Meenakshi Temple (9 PM) when the deity is carried to the inner sanctum.</li>
+          <li>Thanjavur: the Big Temple's vimana casts NO SHADOW at noon due to its engineering — verify this yourself.</li>
+          <li>Trichy: the view from the top of Rockfort — the Srirangam gopuram visible in the distance is unforgettable.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ PACKING ═══════════ -->
+<section id="packing">
+  <div class="section-label">What to Bring</div>
+  <h2 class="section-title">Packing <em>Smart</em></h2>
+  <p class="section-intro">10 days across temples, beaches, and a 46-hour train journey. Pack light — laundry is easy to find in all cities (₹80–120/kg).</p>
+  <div class="ornament"><span>✦</span></div>
+
+  <div class="packing-cols">
+    <div class="pack-group">
+      <div class="pack-group-title">Must Pack — Temple Rituals</div>
+      <div class="pack-item must">3 sets light cotton clothes minimum</div>
+      <div class="pack-item must">2 towels (temples don't provide)</div>
+      <div class="pack-item must">Dhoti (or buy ₹50 at Rameswaram)</div>
+      <div class="pack-item must">Waterproof bag for wet clothes</div>
+      <div class="pack-item must">Flip-flops / easy-remove footwear</div>
+      <div class="pack-item">Modest swimming clothes for beaches</div>
+    </div>
+    <div class="pack-group">
+      <div class="pack-group-title">Train Journey Essentials</div>
+      <div class="pack-item must">Cooked food for 46 hours (both ways)</div>
+      <div class="pack-item must">1L water bottle (refillable at stations)</div>
+      <div class="pack-item must">Padlock for train luggage hooks</div>
+      <div class="pack-item">Neck pillow / travel blanket</div>
+      <div class="pack-item">Entertainment (downloaded shows/books)</div>
+      <div class="pack-item">Power bank (train outlets limited)</div>
+    </div>
+    <div class="pack-group">
+      <div class="pack-group-title">Health & Comfort</div>
+      <div class="pack-item must">Sunscreen SPF 50+ (essential — very hot)</div>
+      <div class="pack-item must">ORS packets (heat and dehydration risk)</div>
+      <div class="pack-item must">Basic medicines: paracetamol, antacids, Digene</div>
+      <div class="pack-item">Mosquito repellent roll-on</div>
+      <div class="pack-item">Hand sanitizer</div>
+      <div class="pack-item">Anti-jellyfish lotion (Ariyaman Beach)</div>
+    </div>
+    <div class="pack-group">
+      <div class="pack-group-title">Documents & Tech</div>
+      <div class="pack-item must">Aadhaar card + photocopy</div>
+      <div class="pack-item must">IRCTC tickets printed or on phone</div>
+      <div class="pack-item must">Hotel booking confirmations downloaded offline</div>
+      <div class="pack-item">Google Maps offline (Tamil Nadu region)</div>
+      <div class="pack-item">UPI apps topped up (PhonePe/GPay)</div>
+      <div class="pack-item">Camera / phone charger + adapter</div>
+    </div>
+    <div class="pack-group">
+      <div class="pack-group-title">What NOT to Bring</div>
+      <div class="pack-item">Expensive jewellery (leave at home)</div>
+      <div class="pack-item">More than 1 pair of formal shoes</div>
+      <div class="pack-item">Heavy winter clothes (it's always hot)</div>
+      <div class="pack-item">Multiple gadgets / laptop (unnecessary)</div>
+      <div class="pack-item">Large suitcase (backpack is better)</div>
+    </div>
+    <div class="pack-group">
+      <div class="pack-group-title">What to Buy There</div>
+      <div class="pack-item">Dhoti rental at temples (₹50)</div>
+      <div class="pack-item">Conch shells — Rameswaram market</div>
+      <div class="pack-item">Rameswaram sea salt — unique local product</div>
+      <div class="pack-item">Thanjavur bronze figurines</div>
+      <div class="pack-item">Madurai jasmine flowers (wear them!)</div>
+      <div class="pack-item">Kanyakumari soapstone carvings</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="site-footer">
+  <div class="footer-title">Jay Rameswaram</div>
+  <p class="footer-sub">A journey to Rameswaram is more than a trip — it is a reminder that India's greatest monuments were built not by machines but by devotion, and that the edge of the land is where the country's story has always begun.</p>
+  <div class="footer-divider"></div>
+  <div class="footer-note">
+    Train schedules and fares are indicative — always verify on IRCTC.gov.in before booking &nbsp;·&nbsp;
+    Entry fees and timings subject to change &nbsp;·&nbsp;
+    Best visited October–March
+  </div>
+</footer>
+
+<script>
+// Fade-in on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Active nav highlighting
+const sections = document.querySelectorAll('section[id], div[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 100) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current
+      ? 'var(--gold)' : '';
+    a.style.borderBottomColor = a.getAttribute('href') === '#' + current
+      ? 'var(--gold)' : '';
+  });
+});
+</script>
+</body>
+</html>
