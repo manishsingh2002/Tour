@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rameswaram & Tamil Nadu | Ultimate Travel Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+
+<!-- Leaflet CSS for Interactive Map -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+<style>
+  :root {
+    --saffron: #E8541A;
+    --deep-saffron: #C43D0A;
+    --gold: #D4A017;
+    --gold-light: #F5C842;
+    --ink: #1A1208;
+    --sand: #F5EDD8;
+    --sand-dark: #E8D9B8;
+    --sea-blue: #1B5B8A;
+    --sea-light: #E8F4FD;
+    --teal: #0E7C7B;
+    --cream: #FFFBF4;
+    --warm-gray: #8A7D6A;
+    --text-body: #3D2E1A;
+    --text-muted: #8A7D6A;
+    --border: rgba(212,160,23,0.25);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-body);
+    overflow-x: hidden;
+  }
+
+  /* ── PROGRESS BAR ── */
+  #progress-container { width: 100%; height: 3px; background: rgba(255,255,255,0.1); position: fixed; top: 0; z-index: 2000; }
+  #progress-bar { height: 3px; background: var(--saffron); width: 0%; transition: width 0.1s; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh; background: var(--ink); position: relative;
+    display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 30%, rgba(232,84,26,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 80% at 80% 80%, rgba(27,91,138,0.25) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 20% 70%, rgba(212,160,23,0.12) 0%, transparent 50%),
+      linear-gradient(175deg, #0D0A05 0%, #1A1208 40%, #0A1520 100%);
+  }
+  .hero-pattern {
+    position: absolute; inset: 0; opacity: 0.06;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(212,160,23,0.4) 60px, rgba(212,160,23,0.4) 61px),
+      repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(212,160,23,0.4) 60px, rgba(212,160,23,0.4) 61px);
+  }
+  .hero-waves { position: absolute; bottom: 0; left: 0; right: 0; height: 180px; overflow: hidden; }
+  .hero-waves svg { position: absolute; bottom: 0; width: 200%; animation: wave 8s linear infinite; }
+  .hero-waves svg:nth-child(2) { animation-delay: -4s; opacity: 0.4; }
+  @keyframes wave { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  .hero-content { position: relative; z-index: 2; padding: 0 6vw 8vh; max-width: 900px; }
+  .hero-eyebrow {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 12px;
+  }
+  .hero-eyebrow::before { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 9vw, 110px);
+    font-weight: 300; line-height: 0.92; color: var(--sand); letter-spacing: -0.02em; margin-bottom: 16px;
+  }
+  .hero-title em { font-style: italic; color: var(--saffron); }
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(16px, 2.5vw, 22px);
+    font-weight: 300; font-style: italic; color: rgba(245,237,216,0.65);
+    margin-bottom: 32px; max-width: 520px; line-height: 1.5;
+  }
+
+  .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
+  .badge {
+    padding: 7px 16px; border: 1px solid rgba(212,160,23,0.35); border-radius: 100px;
+    font-size: 12px; font-weight: 400; color: rgba(245,237,216,0.75);
+    letter-spacing: 0.04em; backdrop-filter: blur(4px);
+  }
+  .badge.highlight { background: rgba(232,84,26,0.2); border-color: rgba(232,84,26,0.5); color: #F5A882; }
+
+  /* ── NAV ── */
+  .sticky-nav {
+    position: sticky; top: 0; z-index: 1000; background: rgba(26,18,8,0.95);
+    backdrop-filter: blur(12px); border-bottom: 1px solid rgba(212,160,23,0.2);
+    padding: 0 6vw; display: flex; justify-content: space-between; align-items: center;
+  }
+  .nav-inner { display: flex; align-items: center; gap: 0; overflow-x: auto; scrollbar-width: none; flex: 1; }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-link {
+    color: rgba(245,237,216,0.5); text-decoration: none; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase; padding: 16px 18px;
+    white-space: nowrap; transition: color 0.2s; border-bottom: 2px solid transparent;
+  }
+  .nav-link:hover { color: var(--gold); border-bottom-color: var(--gold); }
+  
+  .print-btn {
+    background: var(--saffron); color: white; border: none; border-radius: 100px;
+    padding: 6px 16px; font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.1em; cursor: pointer; transition: background 0.2s;
+    display: flex; align-items: center; gap: 6px; white-space: nowrap; margin-left: 20px;
+  }
+  .print-btn:hover { background: var(--deep-saffron); }
+
+  /* ── SECTION SHELLS ── */
+  section, .full-bleed > div { padding: 80px 6vw; max-width: 1300px; margin: 0 auto; }
+  .section-label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--saffron); margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--saffron); }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 5vw, 56px);
+    font-weight: 300; color: var(--ink); line-height: 1.1; margin-bottom: 16px; letter-spacing: -0.01em;
+  }
+  .section-title em { font-style: italic; color: var(--saffron); }
+  .section-intro {
+    font-size: 16px; font-weight: 300; line-height: 1.75; color: var(--text-muted);
+    max-width: 620px; margin-bottom: 48px;
+  }
+
+  /* ── MAP SECTION ── */
+  .map-section { background: var(--cream); padding: 40px 6vw 80px; max-width: 1300px; margin: 0 auto; }
+  #interactive-map {
+    width: 100%; height: 60vh; min-height: 450px; border-radius: 16px;
+    border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(26,18,8,0.08); z-index: 1;
+  }
+  .leaflet-popup-content-wrapper { background: var(--ink); color: var(--sand); border: 1px solid var(--gold); border-radius: 8px; }
+  .leaflet-popup-content { font-family: 'DM Sans', sans-serif; margin: 14px 16px; line-height: 1.5; }
+  .leaflet-popup-tip { background: var(--ink); border: 1px solid var(--gold); }
+  .popup-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--gold); margin-bottom: 4px; font-weight: 600;}
+  .popup-desc { font-size: 12px; color: rgba(245,237,216,0.7); }
+  .custom-marker {
+    background: white; border: 2px solid var(--saffron); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-size: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+
+  /* ── TRAIN INFO ── */
+  .train-section { background: var(--ink); color: var(--sand); }
+  .train-section .section-title { color: var(--sand); }
+  .train-section .section-intro { color: rgba(245,237,216,0.55); }
+  .train-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(212,160,23,0.25);
+    border-radius: 16px; padding: 32px; margin-bottom: 24px;
+  }
+  .train-name { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--gold); margin-bottom: 4px; }
+  .train-number { font-size: 12px; letter-spacing: 0.15em; color: rgba(245,237,216,0.4); text-transform: uppercase; margin-bottom: 24px; }
+  .train-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; }
+  .train-meta-item label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,237,216,0.4); display: block; margin-bottom: 4px; }
+  .train-meta-item span { font-size: 18px; font-weight: 300; color: var(--sand); }
+  .train-meta-item span.accent { color: var(--saffron); font-weight: 500;}
+
+  /* Route Visualizer */
+  .route-visual { display: flex; align-items: center; gap: 0; margin: 32px 0; overflow-x: auto; padding-bottom: 8px; }
+  .route-stop { display: flex; flex-direction: column; align-items: center; min-width: 80px; }
+  .route-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--warm-gray); border: 2px solid rgba(212,160,23,0.2); margin-bottom: 8px; }
+  .route-dot.start, .route-dot.end { width: 14px; height: 14px; background: var(--saffron); border-color: var(--gold); box-shadow: 0 0 12px rgba(232,84,26,0.5); }
+  .route-stop-name { font-size: 10px; color: rgba(245,237,216,0.5); text-align: center; white-space: nowrap; }
+  .route-stop-name.highlight { color: var(--gold); font-weight: 500; }
+  .route-line { flex: 1; min-width: 24px; height: 2px; background: linear-gradient(to right, rgba(212,160,23,0.3), rgba(212,160,23,0.6), rgba(212,160,23,0.3)); margin-bottom: 28px; position: relative; }
+  .route-line::after { content: '›'; position: absolute; top: -10px; right: -4px; color: var(--gold); font-size: 14px; }
+
+  /* Fares */
+  .fare-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 24px; }
+  .fare-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 18px 20px; }
+  .fare-card.recommended { border-color: rgba(232,84,26,0.4); background: rgba(232,84,26,0.08); }
+  .fare-class { font-size: 12px; color: rgba(245,237,216,0.5); margin-bottom: 4px; }
+  .fare-code { font-size: 18px; font-weight: 300; color: var(--sand); margin-bottom: 8px; }
+  .fare-price { font-size: 13px; color: var(--gold); }
+
+  /* ── ITINERARY ── */
+  .day-grid { display: flex; flex-direction: column; gap: 0; }
+  .day-block { display: grid; grid-template-columns: 100px 1fr; gap: 0; position: relative; }
+  .day-block::before { content: ''; position: absolute; left: 80px; top: 60px; bottom: 0; width: 1px; background: var(--border); }
+  .day-block:last-child::before { display: none; }
+  .day-number-col { padding-top: 4px; display: flex; flex-direction: column; align-items: center; padding-right: 24px; }
+  .day-orb { width: 52px; height: 52px; border-radius: 50%; background: var(--ink); border: 1.5px solid var(--border); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; position: relative; }
+  .day-orb .day-n { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-gray); line-height: 1; }
+  .day-orb .day-num { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--saffron); line-height: 1; }
+
+  .day-content { padding: 0 0 56px 0; }
+  .day-header { margin-bottom: 24px; position: relative; }
+  
+  .fly-to-btn {
+    position: absolute; top: 0; right: 0; background: rgba(212,160,23,0.1); color: var(--deep-saffron);
+    border: 1px solid rgba(212,160,23,0.3); border-radius: 100px; padding: 4px 12px; font-size: 10px;
+    font-weight: 600; letter-spacing: 0.05em; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 4px;
+  }
+  .fly-to-btn:hover { background: rgba(232,84,26,0.15); border-color: var(--saffron); transform: translateY(-1px); }
+
+  .day-location { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 4px; }
+  .day-headline { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--ink); line-height: 1.15; padding-right: 100px; }
+  .day-headline em { font-style: italic; color: var(--saffron); }
+  .day-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-top: 6px; max-width: 580px; }
+
+  .stops-list { display: flex; flex-direction: column; gap: 12px; }
+  .stop-card {
+    background: white; border: 1px solid rgba(139,121,97,0.12); border-radius: 12px;
+    padding: 18px 22px; display: grid; grid-template-columns: 48px 1fr auto; gap: 16px;
+    align-items: start; transition: box-shadow 0.2s, transform 0.2s; cursor: default;
+  }
+  .stop-card:hover { box-shadow: 0 4px 20px rgba(139,90,30,0.1); transform: translateY(-1px); }
+  .stop-icon { width: 48px; height: 48px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+  .icon-temple { background: #FFF3E8; } .icon-beach { background: #E8F4FD; } .icon-food { background: #F0FAF0; }
+  .icon-heritage { background: #FDF5E8; } .icon-view { background: #F5E8FD; } .icon-travel { background: #F5F5F5; }
+  
+  .stop-time { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 2px; }
+  .stop-name { font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 4px; line-height: 1.3; }
+  .stop-desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.6; }
+  .stop-tip { font-size: 11.5px; color: var(--teal); margin-top: 6px; line-height: 1.5; padding-top: 6px; border-top: 1px solid rgba(139,121,97,0.1); }
+  .stop-tip::before { content: '💡 '; }
+
+  .stop-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
+  .rating { font-size: 11px; font-weight: 500; color: var(--gold-light); background: #1A1208; padding: 3px 8px; border-radius: 100px; }
+  .duration-badge, .cost-badge { font-size: 10px; color: var(--warm-gray); border: 1px solid var(--border); padding: 2px 8px; border-radius: 100px; white-space: nowrap; }
+  .cost-badge { color: var(--teal); }
+
+  /* ── MISC GRIDS (Budget, Hotels, Food, Tips) ── */
+  .budget-section { background: var(--sand); }
+  .budget-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 40px; }
+  .budget-sum-card { background: white; border: 1px solid rgba(139,121,97,0.15); border-radius: 12px; padding: 20px 22px; }
+  .budget-sum-card label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-gray); display: block; margin-bottom: 6px; }
+  .budget-sum-card .amount { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--ink); font-weight: 600; }
+  .budget-sum-card .amount.green { color: var(--teal); }
+  
+  .budget-table { width: 100%; border-collapse: collapse; margin-top: 32px; }
+  .budget-table th { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-gray); padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--border); }
+  .budget-table td { padding: 14px 16px; font-size: 14px; color: var(--text-body); border-bottom: 1px solid rgba(139,121,97,0.12); vertical-align: top; }
+  .budget-table tr:last-of-type td { border-bottom: none; font-weight: 500; color: var(--ink); background: rgba(212,160,23,0.08); }
+  .budget-table td.amount { font-family: 'Cormorant Garamond', serif; font-size: 17px; }
+  
+  .hotels-grid, .food-grid, .tips-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+  .hotel-card, .food-card, .tip-card { background: white; border: 1px solid rgba(139,121,97,0.12); border-radius: 14px; overflow: hidden; }
+  .tips-section { background: var(--ink); }
+  .tips-section .section-title { color: var(--sand); }
+  .tip-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(212,160,23,0.15); padding: 22px; }
+  
+  .hotel-city-bar { padding: 10px 18px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; }
+  .hotel-body { padding: 16px 18px 18px; }
+  .hotel-name { font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 3px; }
+  .hotel-location { font-size: 11px; color: var(--warm-gray); margin-bottom: 10px; }
+  .hotel-meta { display: flex; gap: 8px; flex-wrap: wrap; }
+  .hotel-tag { font-size: 11px; padding: 3px 10px; border-radius: 100px; border: 1px solid var(--border); color: var(--text-muted); }
+  .hotel-price { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--saffron); font-weight: 600; margin-top: 12px; }
+  .hotel-price span { font-size: 12px; font-family: 'DM Sans', sans-serif; color: var(--warm-gray); font-weight: 300; }
+  .hotel-note { font-size: 11.5px; color: var(--teal); margin-top: 6px; line-height: 1.4; }
+
+  /* Food specifics */
+  .food-card { padding: 20px; }
+  .food-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+  .food-city { font-size: 11px; color: var(--warm-gray); margin-bottom: 8px; }
+  .food-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 10px; }
+  .food-price { font-size: 13px; color: var(--teal); font-weight: 500; }
+  .food-where { font-size: 11.5px; color: var(--warm-gray); margin-top: 4px; }
+
+  /* Tip specifics */
+  .tip-category { font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .tip-category::before { content: ''; display: block; width: 16px; height: 1px; background: var(--gold); }
+  .tip-list { list-style: none; }
+  .tip-list li { font-size: 13px; color: rgba(245,237,216,0.65); line-height: 1.6; padding: 7px 0; border-bottom: 1px solid rgba(212,160,23,0.08); padding-left: 14px; position: relative; }
+  .tip-list li::before { content: '→'; position: absolute; left: 0; color: var(--saffron); font-size: 11px; }
+
+  /* ── INTERACTIVE PACKING LIST ── */
+  .packing-cols { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-top: 32px; }
+  .pack-group { background: white; border: 1px solid rgba(139,121,97,0.12); border-radius: 12px; padding: 18px; }
+  .pack-group-title { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; color: var(--saffron); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  
+  .pack-item {
+    font-size: 13px; color: var(--text-muted); padding: 6px 4px; display: flex; align-items: center; gap: 8px;
+    cursor: pointer; transition: all 0.2s; border-radius: 4px;
+  }
+  .pack-item:hover { background: rgba(139,121,97,0.05); }
+  .pack-item::before {
+    content: ''; width: 12px; height: 12px; border-radius: 3px; border: 1px solid var(--warm-gray);
+    flex-shrink: 0; display: inline-block; transition: all 0.2s;
+  }
+  .pack-item.must::before { border-color: var(--saffron); background: rgba(232,84,26,0.1); }
+  
+  /* Checked State */
+  .pack-item.packed { text-decoration: line-through; opacity: 0.5; color: var(--warm-gray); }
+  .pack-item.packed::before { background: var(--teal); border-color: var(--teal); content: '✓'; color: white; font-size: 10px; display: flex; align-items: center; justify-content: center; }
+
+  /* ── LANGUAGE CHEAT SHEET ── */
+  .lang-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-top: 32px; }
+  .lang-card { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; display: flex; flex-direction: column; }
+  .lang-eng { font-size: 11px; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+  .lang-tam { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--ink); }
+  .lang-pron { font-size: 12px; color: var(--saffron); font-style: italic; margin-top: 2px; }
+
+  /* ── FOOTER ── */
+  .site-footer { background: var(--ink); padding: 60px 6vw 40px; text-align: center; border-top: 1px solid rgba(212,160,23,0.15); }
+  .footer-title { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; font-style: italic; color: var(--gold); margin-bottom: 12px; }
+  .footer-sub { font-size: 13px; color: rgba(245,237,216,0.4); max-width: 480px; margin: 0 auto; line-height: 1.7; }
+  .footer-divider { width: 40px; height: 1px; background: rgba(212,160,23,0.3); margin: 24px auto; }
+  .footer-note { font-size: 11px; color: rgba(245,237,216,0.2); letter-spacing: 0.05em; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .nav-inner { overflow-x: auto; }
+    .print-btn { display: none; } /* Hide print button on small mobile */
+  }
+  @media (max-width: 640px) {
+    section, .full-bleed > div { padding: 56px 5vw; }
+    .day-block { grid-template-columns: 64px 1fr; }
+    .stop-card { grid-template-columns: 40px 1fr; }
+    .stop-meta { display: none; }
+    .fly-to-btn { position: relative; display: inline-flex; margin-top: 8px; }
+    .day-headline { padding-right: 0; }
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .fade-in.visible { opacity: 1; transform: none; }
+  .ornament { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 8px 0 40px; }
+  .ornament::before, .ornament::after { content: ''; flex: 1; max-width: 120px; height: 1px; background: linear-gradient(to right, transparent, var(--border)); }
+  .ornament::after { background: linear-gradient(to left, transparent, var(--border)); }
+  .ornament span { color: var(--gold); font-size: 14px; letter-spacing: 0.2em; }
+  .full-bleed { max-width: none; }
+
+  /* ── PRINT CSS (For saving as PDF) ── */
+  @media print {
+    body { background: white; color: black; font-size: 12pt; }
+    .hero, .sticky-nav, .map-section, #progress-container, .hero-scroll, .fly-to-btn, .ornament { display: none !important; }
+    .train-section, .tips-section, .budget-section, .site-footer { background: white !important; color: black !important; padding: 20px 0 !important; }
+    .section-title { color: black !important; font-size: 24pt !important; }
+    .section-title em { color: #555 !important; }
+    .stop-card, .hotel-card, .food-card, .tip-card, .pack-group, .budget-sum-card { border: 1px solid #ccc !important; box-shadow: none !important; break-inside: avoid; }
+    .train-card, .train-name, .train-meta-item span { color: black !important; }
+    .day-orb { background: white !important; border-color: black !important; }
+    .day-num { color: black !important; }
+    .icon-temple, .icon-beach, .icon-food, .icon-heritage, .icon-view, .icon-travel { border: 1px solid #eee; background: white !important; }
+    .cost-badge, .duration-badge, .rating { border: 1px solid #aaa !important; color: black !important; }
+    a { text-decoration: none !important; color: black !important; }
+    @page { margin: 1.5cm; }
+  }
+</style>
+</head>
+<body>
+
+<div id="progress-container"><div id="progress-bar"></div></div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-waves">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" fill="none">
+      <path d="M0 40 Q180 0 360 40 Q540 80 720 40 Q900 0 1080 40 Q1260 80 1440 40 L1440 80 L0 80 Z" fill="rgba(26,18,8,0.6)"/>
+    </svg>
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" fill="none">
+      <path d="M0 50 Q180 10 360 50 Q540 90 720 50 Q900 10 1080 50 Q1260 90 1440 50 L1440 80 L0 80 Z" fill="rgba(26,18,8,0.4)"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Real-Time Interactive Guide &nbsp;·&nbsp; Surat to Rameswaram</div>
+    <h1 class="hero-title">The Sacred<br><em>Island</em><br>of Rameswaram</h1>
+    <p class="hero-subtitle">A highly optimized 10-day pilgrimage plotting real train timings, local distances, and interactive coordinates across Tamil Nadu's greatest heritage sites.</p>
+    <div class="hero-badges">
+      <span class="badge highlight">🚆 Surat (UDN) to RMM</span>
+      <span class="badge">10 Days · 10 Nights</span>
+      <span class="badge">₹10,000–15,000</span>
+      <span class="badge">6 Major Cities</span>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    scroll
+  </div>
+</div>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav class="sticky-nav">
+  <div class="nav-inner">
+    <a href="#map-view" class="nav-link">Route Map</a>
+    <a href="#trains" class="nav-link">Trains</a>
+    <a href="#itinerary" class="nav-link">Itinerary</a>
+    <a href="#budget" class="nav-link">Budget</a>
+    <a href="#hotels" class="nav-link">Hotels</a>
+    <a href="#food" class="nav-link">Food</a>
+    <a href="#tips" class="nav-link">Tips</a>
+    <a href="#packing" class="nav-link">Checklist</a>
+  </div>
+  <button class="print-btn" onclick="window.print()">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+    Save PDF
+  </button>
+</nav>
+
+<!-- ═══════════ INTERACTIVE MAP ═══════════ -->
+<div class="map-section fade-in" id="map-view">
+  <div class="section-label">Real-Time Geography</div>
+  <h2 class="section-title">Interactive <em>Route</em> Map</h2>
+  <p class="section-intro">Zoom in and click the markers to preview your stops. You can click the "View on Map" buttons in the itinerary below to automatically fly to that day's location.</p>
+  
+  <div id="interactive-map"></div>
+</div>
+
+<!-- ═══════════ TRAIN INFO ═══════════ -->
+<div class="train-section full-bleed fade-in" id="trains">
+  <div>
+    <div class="section-label">Getting There</div>
+    <h2 class="section-title" style="color:var(--sand);">The <em>Iron Road</em> South</h2>
+    <p class="section-intro">Based on actual IRCTC schedules, this is the most efficient way to execute this trip from Gujarat. Book 60 days ahead.</p>
+
+    <div class="train-card">
+      <div class="train-name">Onward: Okha – Rameswaram Express</div>
+      <div class="train-number">Train No. 16734 &nbsp;|&nbsp; Departs every Tuesday</div>
+      <div class="route-visual">
+        <div class="route-stop">
+          <div class="route-dot start"></div>
+          <div class="route-stop-name highlight">Surat (UDN)<br><small style="opacity:0.6">21:20</small></div>
+        </div>
+        <div class="route-line"></div>
+        <div class="route-stop">
+          <div class="route-dot"></div>
+          <div class="route-stop-name">Panvel<br><small style="opacity:0.6">~4h</small></div>
+        </div>
+        <div class="route-line"></div>
+        <div class="route-stop">
+          <div class="route-dot"></div>
+          <div class="route-stop-name">Madgaon<br><small style="opacity:0.6">~9h</small></div>
+        </div>
+        <div class="route-line"></div>
+        <div class="route-stop">
+          <div class="route-dot"></div>
+          <div class="route-stop-name">Mangaluru<br><small style="opacity:0.6">~14h</small></div>
+        </div>
+        <div class="route-line"></div>
+        <div class="route-stop">
+          <div class="route-dot"></div>
+          <div class="route-stop-name">Shoranur<br><small style="opacity:0.6">~20h</small></div>
+        </div>
+        <div class="route-line"></div>
+        <div class="route-stop">
+          <div class="route-dot"></div>
+          <div class="route-stop-name">Madurai<br><small style="opacity:0.6">~35h</small></div>
+        </div>
+        <div class="route-line"></div>
+        <div class="route-stop">
+          <div class="route-dot end"></div>
+          <div class="route-stop-name highlight">Rameswaram<br><small style="opacity:0.6">19:15 (+2 days)</small></div>
+        </div>
+      </div>
+      <div class="train-meta">
+        <div class="train-meta-item">
+          <label>Journey Time</label>
+          <span class="accent">~45h 55m</span>
+        </div>
+        <div class="train-meta-item">
+          <label>Distance</label>
+          <span>2,427 km</span>
+        </div>
+        <div class="train-meta-item">
+          <label>Departs</label>
+          <span>Tuesday, 21:20</span>
+        </div>
+        <div class="train-meta-item">
+          <label>Arrives</label>
+          <span>Thursday, 19:15</span>
+        </div>
+        <div class="train-meta-item">
+          <label>Return Strategy</label>
+          <span style="font-size:14px">Train from Trichy to Chennai -> Surat</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ ITINERARY ═══════════ -->
+<section id="itinerary">
+  <div class="section-label">Day-by-Day Plan</div>
+  <h2 class="section-title">The Complete <em>10-Day</em> Journey</h2>
+  <p class="section-intro">Depart Surat on Tuesday, arrive Rameswaram Thursday evening. Explore for two full days. Then sweep north through Kanyakumari, Madurai, Trichy, and Thanjavur.</p>
+  <div class="ornament"><span>✦</span></div>
+
+  <div class="day-grid">
+
+    <!-- DAY 1-2: Travel -->
+    <div class="day-block fade-in">
+      <div class="day-number-col"><div class="day-orb"><span class="day-n">Day</span><span class="day-num">1–2</span></div></div>
+      <div class="day-content">
+        <div class="day-header">
+          <button class="fly-to-btn" onclick="flyToMap(21.1636, 72.8407)">📍 View Surat</button>
+          <div class="day-location">Surat → On Train → South India</div>
+          <div class="day-headline">The Long Ride <em>South</em></div>
+          <div class="day-desc">Board Train 16734 at Udhna (Surat) at 21:20 on Tuesday. Keep your window seat — this is one of India's most scenic rail routes passing the Konkan coast and Kerala backwaters.</div>
+        </div>
+        <div class="stops-list">
+          <div class="stop-card">
+            <div class="stop-icon icon-travel">🚆</div>
+            <div class="stop-body">
+              <div class="stop-time">Tuesday 21:20</div>
+              <div class="stop-name">Board at Udhna (Surat)</div>
+              <div class="stop-desc">Settle in, the journey to the south begins. Pass through Goa coast at dawn, Mangaluru mid-morning of Day 2.</div>
+              <div class="stop-tip">Carry home-cooked food for both days. Pantry car food is basic.</div>
+            </div>
+            <div class="stop-meta"><span class="duration-badge">~46 hrs</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 3: Arrive -->
+    <div class="day-block fade-in">
+      <div class="day-number-col"><div class="day-orb"><span class="day-n">Day</span><span class="day-num">3</span></div></div>
+      <div class="day-content">
+        <div class="day-header">
+          <button class="fly-to-btn" onclick="flyToMap(9.2876, 79.3129)">📍 View Rameswaram</button>
+          <div class="day-location">Rameswaram, Tamil Nadu</div>
+          <div class="day-headline">Arrive at the <em>Sacred Island</em></div>
+          <div class="day-desc">Train arrives at 19:15. Check into your hotel and make your way to Agni Teertham for the evening sea bath.</div>
+        </div>
+        <div class="stops-list">
+          <div class="stop-card">
+            <div class="stop-icon icon-temple">🌊</div>
+            <div class="stop-body">
+              <div class="stop-time">20:30 PM — Evening</div>
+              <div class="stop-name">Agni Teertham — Sacred Sea Shore</div>
+              <div class="stop-desc">The sacred stretch of sea just outside the Ramanathaswamy Temple. Beautiful in the evening with temple bells echoing.</div>
+              <div class="stop-tip">Evening visit for atmosphere. Come back early morning for the actual ritual bath.</div>
+            </div>
+            <div class="stop-meta"><span class="duration-badge">45 min</span><span class="cost-badge">Free</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 4: Rameswaram Main -->
+    <div class="day-block fade-in">
+      <div class="day-number-col"><div class="day-orb"><span class="day-n">Day</span><span class="day-num">4</span></div></div>
+      <div class="day-content">
+        <div class="day-header">
+          <button class="fly-to-btn" onclick="flyToMap(9.2876, 79.3129)">📍 View Temple</button>
+          <div class="day-location">Rameswaram Island</div>
+          <div class="day-headline"><em>Temple</em> Day — The Heart</div>
+          <div class="day-desc">Start at 5:30 AM for the 22-theertham bath ritual, then explore the island's spiritual landmarks.</div>
+        </div>
+        <div class="stops-list">
+          <div class="stop-card">
+            <div class="stop-icon icon-temple">🛕</div>
+            <div class="stop-body">
+              <div class="stop-time">5:30 AM</div>
+              <div class="stop-name">Ramanathaswamy Temple — Jyotirlinga</div>
+              <div class="stop-desc">One of India's 12 Jyotirlingas. Walk the world's longest temple corridor and take the 22 holy theertham baths inside. Expect to get completely drenched.</div>
+              <div class="stop-tip">Carry 2 changes of clothes. No camera/phone inside. Hire a guide (₹200–300).</div>
+            </div>
+            <div class="stop-meta"><span class="rating">⭐ 4.7</span><span class="duration-badge">3 hrs</span></div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-icon icon-temple">🙏</div>
+            <div class="stop-body">
+              <div class="stop-time">9:30 AM</div>
+              <div class="stop-name">Panchmukhi Hanuman & Floating Stones</div>
+              <div class="stop-desc">Houses the legendary floating stones (Ram Setu stones) — believed used by Vanarasena to build the bridge to Lanka.</div>
+            </div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-icon icon-view">⛰️</div>
+            <div class="stop-body">
+              <div class="stop-time">12:00 PM</div>
+              <div class="stop-name">Gandhamadhana Parvatham</div>
+              <div class="stop-desc">The highest point on Rameswaram island with Rama's sacred footprints. 360° panoramic views of the island.</div>
+            </div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-icon icon-beach">🌉</div>
+            <div class="stop-body">
+              <div class="stop-time">5:00 PM</div>
+              <div class="stop-name">Pamban Bridge Sunset</div>
+              <div class="stop-desc">India's iconic sea bridge. Time your visit to watch a train cross at sunset.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 5: Dhanushkodi -->
+    <div class="day-block fade-in">
+      <div class="day-number-col"><div class="day-orb"><span class="day-n">Day</span><span class="day-num">5</span></div></div>
+      <div class="day-content">
+        <div class="day-header">
+          <button class="fly-to-btn" onclick="flyToMap(9.2275, 79.4187)">📍 View Dhanushkodi</button>
+          <div class="day-location">Dhanushkodi & Beaches</div>
+          <div class="day-headline">Land's <em>End</em></div>
+          <div class="day-desc">Head to the ghost town ruins where the Bay of Bengal meets the Indian Ocean. Sri Lanka is visible 23 km away.</div>
+        </div>
+        <div class="stops-list">
+          <div class="stop-card">
+            <div class="stop-icon icon-beach">🏖️</div>
+            <div class="stop-body">
+              <div class="stop-time">8:30 AM</div>
+              <div class="stop-name">Dhanushkodi Beach & Point</div>
+              <div class="stop-desc">The final point of land before Lanka. Two seas with visibly different colors meeting in a dramatic confluence.</div>
+              <div class="stop-tip">Take a shared jeep (₹100). Arrive before 9 AM to beat the brutal sun.</div>
+            </div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-icon icon-beach">🏊</div>
+            <div class="stop-body">
+              <div class="stop-time">2:00 PM</div>
+              <div class="stop-name">Ariyaman Beach</div>
+              <div class="stop-desc">A calm, clean beach 15 km from town. Safe for swimming with clear turquoise water.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 6: Kanyakumari -->
+    <div class="day-block fade-in">
+      <div class="day-number-col"><div class="day-orb"><span class="day-n">Day</span><span class="day-num">6</span></div></div>
+      <div class="day-content">
+        <div class="day-header">
+          <button class="fly-to-btn" onclick="flyToMap(8.0883, 77.5385)">📍 View Kanyakumari</button>
+          <div class="day-location">Kanyakumari (5.5 hrs by bus)</div>
+          <div class="day-headline">Where <em>Three Seas</em> Meet</div>
+          <div class="day-desc">Travel to the southernmost tip of mainland India.</div>
+        </div>
+        <div class="stops-list">
+          <div class="stop-card">
+            <div class="stop-icon icon-heritage">🏛️</div>
+            <div class="stop-body">
+              <div class="stop-time">12:30 PM</div>
+              <div class="stop-name">Vivekananda Rock Memorial</div>
+              <div class="stop-desc">Reached by ferry. Marks where Swami Vivekananda meditated. Includes the 133-foot Thiruvalluvar Statue.</div>
+            </div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-icon icon-view">🌇</div>
+            <div class="stop-body">
+              <div class="stop-time">5:30 PM</div>
+              <div class="stop-name">Sunset at Triveni Sangam</div>
+              <div class="stop-desc">Watch the sun descend directly into the sea at the convergence of three oceans.</div>
+              <div class="stop-tip">On full moon nights, you can see the sunset and moonrise simultaneously.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 7: Madurai -->
+    <div class="day-block fade-in">
+      <div class="day-number-col"><div class="day-orb"><span class="day-n">Day</span><span class="day-num">7</span></div></div>
+      <div class="day-content">
+        <div class="day-header">
+          <button class="fly-to-btn" onclick="flyToMap(9.9252, 78.1198)">📍 View Madurai</button>
+          <div class="day-location">Madurai (4 hrs by bus)</div>
+          <div class="day-headline">The <em>Temple City</em></div>
+          <div class="day-desc">One of the oldest continually inhabited cities in the world.</div>
+        </div>
+        <div class="stops-list">
+          <div class="stop-card">
+            <div class="stop-icon icon-temple">🛕</div>
+            <div class="stop-body">
+              <div class="stop-time">10:00 AM</div>
+              <div class="stop-name">Meenakshi Amman Temple</div>
+              <div class="stop-desc">14 soaring gopurams and the Hall of 1,000 Pillars. The temples within temples are genuinely labyrinthine.</div>
+              <div class="stop-tip">The evening aarti (around 9 PM) is unforgettable. No phones allowed.</div>
+            </div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-icon icon-heritage">🏛️</div>
+            <div class="stop-body">
+              <div class="stop-time">1:30 PM</div>
+              <div class="stop-name">Thirumalai Nayakkar Palace</div>
+              <div class="stop-desc">17th-century royal palace featuring massive pillars and Indo-Saracenic architecture.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 8: Trichy/Thanjavur -->
+    <div class="day-block fade-in">
+      <div class="day-number-col"><div class="day-orb"><span class="day-n">Day</span><span class="day-num">8</span></div></div>
+      <div class="day-content">
+        <div class="day-header">
+          <button class="fly-to-btn" onclick="flyToMap(10.7905, 78.7047)">📍 View Trichy</button>
+          <div class="day-location">Trichy & Thanjavur</div>
+          <div class="day-headline">The <em>Chola</em> Legacy</div>
+          <div class="day-desc">World-record temples and ancient rockforts.</div>
+        </div>
+        <div class="stops-list">
+          <div class="stop-card">
+            <div class="stop-icon icon-temple">🛕</div>
+            <div class="stop-body">
+              <div class="stop-time">8:30 AM</div>
+              <div class="stop-name">Sri Ranganathaswamy Temple</div>
+              <div class="stop-desc">The largest functioning Hindu temple complex in the world (156 acres). It feels like walking through an ancient walled city.</div>
+            </div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-icon icon-heritage">🏛️</div>
+            <div class="stop-body">
+              <div class="stop-time">2:00 PM (Thanjavur)</div>
+              <div class="stop-name">Brihadeeswarar Temple (UNESCO)</div>
+              <div class="stop-desc">Built 1,000 years ago entirely of granite without mortar. The vimana casts no shadow at noon.</div>
+            </div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-icon icon-travel">🚆</div>
+            <div class="stop-body">
+              <div class="stop-time">Evening</div>
+              <div class="stop-name">Board Return Train (via Chennai)</div>
+              <div class="stop-desc">Take an overnight train from Trichy to Chennai (Egmore), then cross to Chennai Central to catch the Navjeevan Exp back to Surat.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ BUDGET & HOTELS ═══════════ -->
+<div class="budget-section full-bleed" id="budget">
+  <div>
+    <div class="section-label">Money & Sleep</div>
+    <h2 class="section-title">Budget & <em>Hotels</em></h2>
+    
+    <div class="budget-summary">
+      <div class="budget-sum-card">
+        <label>Budget Option (SL)</label>
+        <div class="amount">₹8,500</div>
+      </div>
+      <div class="budget-sum-card">
+        <label>Comfortable (3AC)</label>
+        <div class="amount">₹13,500</div>
+      </div>
+      <div class="budget-sum-card">
+        <label>Your Limit</label>
+        <div class="amount green">₹15,000</div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Cormorant Garamond',serif; font-size:24px; margin-top:40px; margin-bottom:20px;">Top Hotel Picks (Under ₹1,500)</h3>
+    <div class="hotels-grid">
+      <div class="hotel-card">
+        <div class="hotel-city-bar" style="background:#FFF3E8; color:var(--saffron);">Rameswaram</div>
+        <div class="hotel-body">
+          <div class="hotel-name">Hotel Tamilnadu Unit II (TTDC)</div>
+          <div class="hotel-meta"><span class="hotel-tag">Government Owned</span></div>
+          <div class="hotel-price">₹900+</div>
+        </div>
+      </div>
+      <div class="hotel-card">
+        <div class="hotel-city-bar" style="background:#E8F4FD; color:var(--sea-blue);">Kanyakumari</div>
+        <div class="hotel-body">
+          <div class="hotel-name">Hotel Tri Sea / Hotel Sea Land</div>
+          <div class="hotel-meta"><span class="hotel-tag">Sea Views</span></div>
+          <div class="hotel-price">₹1,200+</div>
+        </div>
+      </div>
+      <div class="hotel-card">
+        <div class="hotel-city-bar" style="background:#F0FAF0; color:var(--teal);">Madurai</div>
+        <div class="hotel-body">
+          <div class="hotel-name">Guesthouses near Periyar Bus Stand</div>
+          <div class="hotel-meta"><span class="hotel-tag">Walk to Temple</span></div>
+          <div class="hotel-price">₹800+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ FOOD & TIPS ═══════════ -->
+<section id="food" style="padding-top: 80px;">
+  <div class="section-label">Eat & Know</div>
+  <h2 class="section-title">Food & <em>Insider Tips</em></h2>
+  
+  <div class="food-grid" style="margin-bottom: 40px;">
+    <div class="food-card">
+      <div class="food-name">Idli & Garlic Dosa</div>
+      <div class="food-city">Rameswaram (Sri Murugan Mess)</div>
+      <div class="food-desc">The standard breakfast. Soft idlis and crisp garlic dosa with three chutneys. Just ₹100.</div>
+    </div>
+    <div class="food-card">
+      <div class="food-name">Madurai Jigarthanda</div>
+      <div class="food-city">Madurai (Since 1977)</div>
+      <div class="food-desc">Almond gum, cold milk, nannari syrup, and ice cream. Transcendently refreshing.</div>
+    </div>
+    <div class="food-card">
+      <div class="food-name">Fresh Seafood Fry</div>
+      <div class="food-city">Dhanushkodi / Kanyakumari</div>
+      <div class="food-desc">Fresh catch directly from the boats, fried in Chettinad-style masala or tamarind gravy.</div>
+    </div>
+  </div>
+
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-category">Temple Rules</div>
+      <ul class="tip-list">
+        <li>Men MUST wear Dhotis inside major temples (rent outside for ₹50).</li>
+        <li>No phones/cameras allowed inside sanctums.</li>
+        <li>Arrive before 6 AM to beat extreme crowds.</li>
+      </ul>
+    </div>
+    <div class="tip-card">
+      <div class="tip-category">Logistics</div>
+      <ul class="tip-list">
+        <li>Carry ₹3,000 cash. Auto rickshaws and small towns don't use UPI.</li>
+        <li>TNSTC local buses are the fastest, cheapest way between cities.</li>
+        <li>Drink ORS daily. The humidity and heat drain energy quickly.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TAMIL CHEAT SHEET ═══════════ -->
+<section id="language" style="background:var(--cream); padding-top: 40px;">
+  <div class="section-label">Survival Dictionary</div>
+  <h2 class="section-title">Essential <em>Tamil</em> Phrases</h2>
+  <p class="section-intro">English works in hotels, but knowing 5 basic Tamil words will get you cheaper auto fares and brighter smiles.</p>
+  
+  <div class="lang-grid">
+    <div class="lang-card">
+      <div class="lang-eng">Hello / Greetings</div>
+      <div class="lang-tam">Vanakkam</div>
+      <div class="lang-pron">(Vah-nah-kum)</div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-eng">Thank you</div>
+      <div class="lang-tam">Nandri</div>
+      <div class="lang-pron">(Nun-dree)</div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-eng">How much?</div>
+      <div class="lang-tam">Evvalavu?</div>
+      <div class="lang-pron">(Yev-vuh-luh-voo)</div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-eng">I want...</div>
+      <div class="lang-tam">Enakku venum</div>
+      <div class="lang-pron">(Yen-nuh-ku vey-noom)</div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-eng">No / I don't want</div>
+      <div class="lang-tam">Vendaam</div>
+      <div class="lang-pron">(Veyn-daam)</div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-eng">Where is the temple?</div>
+      <div class="lang-tam">Kovil enga irukku?</div>
+      <div class="lang-pron">(Ko-vil yen-ga ih-roo-ku)</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ INTERACTIVE PACKING ═══════════ -->
+<section id="packing" style="padding-top: 40px;">
+  <div class="section-label">Interactive Checklist</div>
+  <h2 class="section-title">Click to <em>Pack</em></h2>
+  <p class="section-intro">Click any item to cross it off. Pack light — laundry is cheap in Tamil Nadu.</p>
+
+  <div class="packing-cols">
+    <div class="pack-group">
+      <div class="pack-group-title">Temple & Beach</div>
+      <div class="pack-item must" onclick="this.classList.toggle('packed')">3 sets light cotton clothes</div>
+      <div class="pack-item must" onclick="this.classList.toggle('packed')">2 thin towels</div>
+      <div class="pack-item must" onclick="this.classList.toggle('packed')">Dhoti (men)</div>
+      <div class="pack-item must" onclick="this.classList.toggle('packed')">Waterproof bag for wet clothes</div>
+      <div class="pack-item must" onclick="this.classList.toggle('packed')">Slip-on sandals (easy remove)</div>
+    </div>
+    <div class="pack-group">
+      <div class="pack-group-title">Train Journey (46h)</div>
+      <div class="pack-item must" onclick="this.classList.toggle('packed')">Dry food (Theplas, Khakhra)</div>
+      <div class="pack-item must" onclick="this.classList.toggle('packed')">Padlock & chain</div>
+      <div class="pack-item" onclick="this.classList.toggle('packed')">Neck pillow & thin blanket</div>
+      <div class="pack-item" onclick="this.classList.toggle('packed')">Power bank</div>
+    </div>
+    <div class="pack-group">
+      <div class="pack-group-title">Health & Docs</div>
+      <div class="pack-item must" onclick="this.classList.toggle('packed')">Sunscreen SPF 50+</div>
+      <div class="pack-item must" onclick="this.classList.toggle('packed')">ORS / Electral powder</div>
+      <div class="pack-item must" onclick="this.classList.toggle('packed')">Basic Meds (Paracetamol, Digene)</div>
+      <div class="pack-item must" onclick="this.classList.toggle('packed')">Aadhaar Card + Photocopy</div>
+      <div class="pack-item" onclick="this.classList.toggle('packed')">Printed IRCTC Tickets</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="site-footer">
+  <div class="footer-title">Jay Rameswaram</div>
+  <p class="footer-sub">A journey to Rameswaram is more than a trip — it is a reminder that India's greatest monuments were built not by machines but by devotion, and that the edge of the land is where the country's story has always begun.</p>
+  <div class="footer-divider"></div>
+  <div class="footer-note">Train schedules and fares are indicative — verify on IRCTC.gov.in. Best visited October–March.</div>
+</footer>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+// 1. Progress Bar
+window.addEventListener('scroll', () => {
+  const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById("progress-bar").style.width = scrolled + "%";
+});
+
+// 2. Fade-in on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// 3. Active Nav Highlighting
+const sections = document.querySelectorAll('section[id], div[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 100) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+    a.style.borderBottomColor = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+  });
+});
+
+// 4. LEAFLET MAP INITIALIZATION & FLY-TO Logic
+let map;
+document.addEventListener('DOMContentLoaded', function() {
+  const locations = {
+    surat: [21.1636, 72.8407], rameswaram: [9.2876, 79.3129], dhanushkodi: [9.2275, 79.4187],
+    kanyakumari: [8.0883, 77.5385], madurai: [9.9252, 78.1198], trichy: [10.7905, 78.7047],
+    thanjavur: [10.7828, 79.1318]
+  };
+
+  map = L.map('interactive-map', { scrollWheelZoom: false }).setView([11.0, 78.0], 6);
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; OpenStreetMap &copy; CARTO', maxZoom: 19
+  }).addTo(map);
+
+  function createIcon(emoji) {
+    return L.divIcon({ className: 'custom-marker', html: `<div>${emoji}</div>`, iconSize: [36, 36], iconAnchor: [18, 18], popupAnchor: [0, -20] });
+  }
+
+  const stops = [
+    { loc: locations.surat, title: "Surat (Udhna Jn)", desc: "Start: Train 16734", icon: "🚆" },
+    { loc: locations.madurai, title: "Madurai", desc: "Meenakshi Amman Temple", icon: "🛕" },
+    { loc: locations.rameswaram, title: "Rameswaram", desc: "Ramanathaswamy & Agni Teertham", icon: "🔱" },
+    { loc: locations.dhanushkodi, title: "Dhanushkodi", desc: "Land's End & Two Seas", icon: "🌊" },
+    { loc: locations.kanyakumari, title: "Kanyakumari", desc: "Triveni Sangam Sunset", icon: "🌅" },
+    { loc: locations.trichy, title: "Trichy", desc: "Srirangam Temple", icon: "⛰️" },
+    { loc: locations.thanjavur, title: "Thanjavur", desc: "Brihadeeswarar Temple", icon: "🏛️" }
+  ];
+
+  stops.forEach(stop => {
+    L.marker(stop.loc, { icon: createIcon(stop.icon) }).addTo(map)
+      .bindPopup(`<div class="popup-title">${stop.title}</div><div class="popup-desc">${stop.desc}</div>`);
+  });
+
+  L.polyline([locations.surat, locations.madurai, locations.rameswaram], { color: '#E8541A', weight: 3, opacity: 0.6, dashArray: '10, 10' }).addTo(map);
+  L.polyline([locations.rameswaram, locations.dhanushkodi, locations.kanyakumari, locations.madurai, locations.trichy, locations.thanjavur], { color: '#1B5B8A', weight: 3, opacity: 0.8 }).addTo(map);
+
+  map.fitBounds(L.latLngBounds([locations.rameswaram, locations.kanyakumari, locations.thanjavur]), { padding: [50, 50] });
+});
+
+// Global Fly-To function called by buttons
+function flyToMap(lat, lng) {
+  document.getElementById('map-view').scrollIntoView({ behavior: 'smooth' });
+  setTimeout(() => {
+    map.flyTo([lat, lng], 10, { duration: 1.5, easeLinearity: 0.25 });
+  }, 500); // Wait for scroll to mostly finish
+}
+</script>
+</body>
+</html>
